@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { User, LogIn, UserPlus, AlertCircle, Eye, EyeOff, Check, Mail, Lock, PlayCircle, Loader2, Volume2, VolumeX, Shield } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { User, LogIn, UserPlus, AlertCircle, Eye, EyeOff, Check, Mail, Lock, Loader2, Shield } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../lib/firebase';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
@@ -30,16 +30,6 @@ export default function Login() {
   // Captcha State
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const [captchaLoading, setCaptchaLoading] = useState(false);
-  
-  // Video State
-  const [isVideoMuted, setIsVideoMuted] = useState(true);
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = isVideoMuted;
-    }
-  }, [isVideoMuted]);
 
   const [displayText, setDisplayText] = useState('');
   const fullText = 'CAMPUSSYNC';
@@ -143,16 +133,12 @@ export default function Login() {
   return (
     <div className="relative min-h-screen w-full overflow-y-auto sm:overflow-hidden bg-black flex flex-col items-center justify-center font-sans px-3 sm:px-4 py-6 select-none">
       
-      {/* 1. Background Video */}
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        playsInline
-        className="fixed top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover object-center z-0 transition-opacity duration-1000 opacity-100"
-      >
-        <source src="/assets/bg.mp4" type="video/mp4" />
-      </video>
+      {/* 1. Background Image */}
+      <img
+        src="/assets/login-bg.jpg"
+        alt="Campus Background"
+        className="fixed top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover object-center z-0 opacity-70"
+      />
 
       {/* 2. Background Overlay */}
       <div className="absolute inset-0 bg-black/30 z-10"></div>
