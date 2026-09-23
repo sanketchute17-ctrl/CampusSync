@@ -150,25 +150,27 @@ export default function Login() {
       {/* 4. Floating Form Container (No heavy outer box) */}
       <div className="relative z-20 w-full max-w-[340px] sm:max-w-md my-auto flex flex-col max-h-[95vh] overflow-y-auto [&::-webkit-scrollbar]:hidden px-2 sm:px-4">
         
-        {/* Role Switcher & Branding Header */}
+        {/* Branding Header & Role Switcher */}
         <div className="flex flex-col items-center mb-3 text-center">
-          <div className="flex bg-[#0f172a]/80 backdrop-blur-md p-1 rounded-full mb-2.5 w-48 sm:w-56 justify-between relative border border-sky-900/50 shadow-lg">
-            <div className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-gradient-to-r from-sky-500 to-blue-600 rounded-full transition-all duration-300 shadow-sm ${role === 'faculty' ? 'translate-x-[100%]' : 'translate-x-0'}`}></div>
-            <button type="button" onClick={() => { setRole('student'); setError(null); }} className={`flex-1 py-1 text-xs font-extrabold z-10 transition-colors ${role === 'student' ? 'text-white' : 'text-slate-400'}`}>Student</button>
-            <button type="button" onClick={() => { setRole('faculty'); setError(null); }} className={`flex-1 py-1 text-xs font-extrabold z-10 transition-colors ${role === 'faculty' ? 'text-white' : 'text-slate-400'}`}>Faculty</button>
-          </div>
-
-          <div className="w-full flex items-center justify-center mb-1">
+          {/* 1. App Name & Logo AT THE TOP */}
+          <div className="w-full flex items-center justify-center mb-2">
             <img src="/app-logo.png" alt="CampusSync Logo" className="h-9 sm:h-11 w-auto object-contain mr-2 drop-shadow-md" />
             <h1 className="text-xl sm:text-2xl font-black text-white tracking-wider uppercase border-b-2 border-sky-400/80 pb-0.5 inline-block drop-shadow-md">
               {displayText}
             </h1>
           </div>
+
+          {/* 2. Student & Faculty portal toggle BELOW */}
+          <div className="flex bg-[#0f172a]/60 backdrop-blur-md p-1 rounded-full mb-1 w-48 sm:w-52 justify-between relative border border-white/30 shadow-md">
+            <div className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-blue-900/90 rounded-full transition-all duration-300 shadow-sm border border-blue-400/40 ${role === 'faculty' ? 'translate-x-[100%]' : 'translate-x-0'}`}></div>
+            <button type="button" onClick={() => { setRole('student'); setError(null); }} className={`flex-1 py-1 text-xs font-extrabold z-10 transition-colors ${role === 'student' ? 'text-white' : 'text-white/70'}`}>Student</button>
+            <button type="button" onClick={() => { setRole('faculty'); setError(null); }} className={`flex-1 py-1 text-xs font-extrabold z-10 transition-colors ${role === 'faculty' ? 'text-white' : 'text-white/70'}`}>Faculty</button>
+          </div>
         </div>
 
         {error && (
-          <div className="w-full bg-red-950/80 backdrop-blur-md border border-red-500/50 text-red-100 text-xs px-3.5 py-2 rounded-full mb-3 flex items-center gap-2 shadow-md animate-in fade-in duration-300">
-            <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
+          <div className="w-full bg-red-500/20 backdrop-blur-md border border-red-400/40 text-red-100 text-xs px-3.5 py-2 rounded-full mb-3 flex items-center gap-2 shadow-md animate-in fade-in duration-300">
+            <AlertCircle className="w-4 h-4 shrink-0 text-red-300" />
             <p className="font-semibold">{error.replace('Firebase:', '').trim()}</p>
           </div>
         )}
@@ -178,12 +180,12 @@ export default function Login() {
           {!isLogin && (
             <div className="space-y-2.5 animate-in slide-in-from-top-4 duration-300">
               <div className="relative w-full">
-                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-sky-400/80 pointer-events-none" />
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/80 pointer-events-none" />
                 <input 
                   type="text" 
                   value={fullName} onChange={(e) => setFullName(e.target.value)} required={!isLogin}
                   placeholder="Full Name (e.g. Rahul Sharma)" 
-                  className="w-full pl-10 pr-4 py-2.5 bg-[#0f172a]/85 backdrop-blur-xl border border-sky-900/60 rounded-full text-white placeholder:text-slate-400 focus:outline-none focus:border-sky-400 focus:bg-[#0b132b] focus:ring-2 focus:ring-sky-500/20 transition-all font-medium text-xs shadow-lg"
+                  className="w-full pl-10 pr-3.5 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 focus:ring-2 focus:ring-white/20 transition-all font-semibold text-xs shadow-md"
                 />
               </div>
 
@@ -192,13 +194,13 @@ export default function Login() {
                   type="text" 
                   value={regNo} onChange={(e) => setRegNo(e.target.value)} required={!isLogin}
                   placeholder={role === 'faculty' ? "Employee ID" : "Reg No (EN21001)"} 
-                  className="w-full px-4 py-2.5 bg-[#0f172a]/85 backdrop-blur-xl border border-sky-900/60 rounded-full text-white placeholder:text-slate-400 focus:outline-none focus:border-sky-400 focus:bg-[#0b132b] focus:ring-2 focus:ring-sky-500/20 transition-all text-xs font-medium shadow-lg flex-1"
+                  className="w-full px-3.5 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 focus:ring-2 focus:ring-white/20 transition-all text-xs font-semibold shadow-md flex-1"
                 />
                 {role === 'student' && (
                   <input 
                     type="date" 
                     value={dob} onChange={(e) => setDob(e.target.value)} required={!isLogin}
-                    className="w-full px-3 py-2.5 bg-[#0f172a]/85 backdrop-blur-xl border border-sky-900/60 rounded-full text-white/80 focus:text-white focus:outline-none focus:border-sky-400 focus:bg-[#0b132b] transition-all text-xs font-medium [color-scheme:dark] shadow-lg flex-1"
+                    className="w-full px-3 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white/90 focus:text-white focus:outline-none focus:border-white focus:bg-white/30 transition-all text-xs font-semibold [color-scheme:dark] shadow-md flex-1"
                   />
                 )}
               </div>
@@ -208,7 +210,7 @@ export default function Login() {
                   <div className="flex gap-2">
                     <select 
                       value={branch} onChange={(e) => setBranch(e.target.value)} required={!isLogin}
-                      className="w-full px-3.5 py-2.5 bg-[#0f172a] backdrop-blur-xl border border-sky-900/60 rounded-full text-white focus:outline-none focus:border-sky-400 transition-all text-xs font-medium shadow-lg flex-[2]">
+                      className="w-full px-3 py-2 bg-slate-900/80 backdrop-blur-xl border border-white/30 rounded-full text-white focus:outline-none focus:border-white transition-all text-xs font-semibold shadow-md flex-[2]">
                       <option value="" disabled>Select Branch</option>
                       <option value="CSE">Computer Science (CSE)</option>
                       <option value="IT">Information Tech (IT)</option>
@@ -222,7 +224,7 @@ export default function Login() {
 
                     <select 
                       value={semester} onChange={(e) => setSemester(e.target.value)} required={!isLogin}
-                      className="w-full px-3 py-2.5 bg-[#0f172a] backdrop-blur-xl border border-sky-900/60 rounded-full text-white focus:outline-none focus:border-sky-400 transition-all text-xs font-medium shadow-lg flex-[1]">
+                      className="w-full px-3 py-2 bg-slate-900/80 backdrop-blur-xl border border-white/30 rounded-full text-white focus:outline-none focus:border-white transition-all text-xs font-semibold shadow-md flex-[1]">
                       <option value="" disabled>Sem</option>
                       {[1, 2, 3, 4, 5, 6, 7, 8].map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
@@ -233,20 +235,20 @@ export default function Login() {
                       type="number" 
                       value={startYear} onChange={(e) => setStartYear(e.target.value)} required={!isLogin}
                       placeholder="Start Year" min="2010" max="2030"
-                      className="w-full px-4 py-2.5 bg-[#0f172a]/85 backdrop-blur-xl border border-sky-900/60 rounded-full text-white placeholder:text-slate-400 focus:outline-none focus:border-sky-400 focus:bg-[#0b132b] transition-all text-xs font-medium shadow-lg flex-1"
+                      className="w-full px-3.5 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 transition-all text-xs font-semibold shadow-md flex-1"
                     />
                     <input 
                       type="number" 
                       value={endYear} onChange={(e) => setEndYear(e.target.value)} required={!isLogin}
                       placeholder="End Year" min="2014" max="2034"
-                      className="w-full px-4 py-2.5 bg-[#0f172a]/85 backdrop-blur-xl border border-sky-900/60 rounded-full text-white placeholder:text-slate-400 focus:outline-none focus:border-sky-400 focus:bg-[#0b132b] transition-all text-xs font-medium shadow-lg flex-1"
+                      className="w-full px-3.5 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 transition-all text-xs font-semibold shadow-md flex-1"
                     />
                   </div>
                 </>
               ) : (
                 <select 
                   value={facultyDept} onChange={(e) => setFacultyDept(e.target.value)} required={!isLogin}
-                  className="w-full px-4 py-2.5 bg-[#0f172a] backdrop-blur-xl border border-sky-900/60 rounded-full text-white focus:outline-none focus:border-sky-400 transition-all text-xs font-medium shadow-lg">
+                  className="w-full px-3.5 py-2 bg-slate-900/80 backdrop-blur-xl border border-white/30 rounded-full text-white focus:outline-none focus:border-white transition-all text-xs font-semibold shadow-md">
                   <option value="" disabled>Select Department</option>
                   <option value="CSE">Computer Science</option>
                   <option value="IT">Information Technology</option>
@@ -263,28 +265,28 @@ export default function Login() {
 
           {/* Email Pill Input */}
           <div className="relative w-full">
-            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-sky-400/80 pointer-events-none" />
+            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/80 pointer-events-none" />
             <input 
               type="text" 
               value={emailOrReg} onChange={(e) => setEmailOrReg(e.target.value)} required
               placeholder="Enter your registered email" 
-              className="w-full pl-10 pr-4 py-2.5 bg-[#0f172a]/85 backdrop-blur-xl border border-sky-900/60 rounded-full text-white placeholder:text-slate-400 focus:outline-none focus:border-sky-400 focus:bg-[#0b132b] focus:ring-2 focus:ring-sky-500/20 transition-all text-xs font-medium shadow-lg"
+              className="w-full pl-10 pr-3.5 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 focus:ring-2 focus:ring-white/20 transition-all text-xs font-semibold shadow-md"
             />
           </div>
 
           {/* Password Pill Input */}
           <div className="relative w-full">
-            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-sky-400/80 pointer-events-none" />
+            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/80 pointer-events-none" />
             <input 
               type={showPassword ? "text" : "password"} 
               value={password} onChange={(e) => setPassword(e.target.value)} required
               placeholder="Enter your password" 
-              className="w-full pl-10 pr-10 py-2.5 bg-[#0f172a]/85 backdrop-blur-xl border border-sky-900/60 rounded-full text-white placeholder:text-slate-400 focus:outline-none focus:border-sky-400 focus:bg-[#0b132b] focus:ring-2 focus:ring-sky-500/20 transition-all text-xs font-medium shadow-lg"
+              className="w-full pl-10 pr-10 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 focus:ring-2 focus:ring-white/20 transition-all text-xs font-semibold shadow-md"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/75 hover:text-white transition-colors"
             >
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
             </button>
@@ -296,7 +298,7 @@ export default function Login() {
               <button
                 type="button"
                 onClick={handleForgotPassword}
-                className="px-3 py-1 bg-[#0f172a]/80 hover:bg-[#1e293b] backdrop-blur-md border border-sky-900/50 text-sky-300 hover:text-sky-200 font-extrabold text-[11px] rounded-full transition-all shadow-sm"
+                className="px-3 py-1 bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-sky-200 hover:text-white font-extrabold text-[11px] rounded-full transition-all shadow-sm"
               >
                 Forgot Password?
               </button>
@@ -306,7 +308,7 @@ export default function Login() {
           {/* Captcha Section */}
           <div className="w-full mt-0.5">
             <div 
-              className="flex items-center justify-between bg-[#0f172a]/90 backdrop-blur-md border border-sky-900/60 rounded-2xl px-4 py-2 cursor-pointer shadow-lg w-full"
+              className="flex items-center justify-between bg-white/95 backdrop-blur-md border border-white rounded-2xl p-2.5 sm:px-4 cursor-pointer shadow-md w-full"
               onClick={() => {
                 if (captchaVerified) return;
                 setCaptchaLoading(true);
@@ -318,20 +320,20 @@ export default function Login() {
               }}
             >
               <div className="flex items-center gap-2.5">
-                <div className="flex items-center justify-center w-5 h-5 rounded border bg-slate-950 flex-shrink-0 transition-all" style={{ borderColor: captchaVerified ? 'transparent' : '#475569' }}>
+                <div className="flex items-center justify-center w-5 h-5 rounded-md border-2 bg-white flex-shrink-0 transition-all" style={{ borderColor: captchaVerified ? 'transparent' : '#94a3b8' }}>
                    {captchaLoading ? (
-                      <span className="animate-spin h-3.5 w-3.5 border-2 border-sky-400 border-t-transparent rounded-full"></span>
+                      <span className="animate-spin h-3.5 w-3.5 border-2 border-sky-500 border-t-transparent rounded-full"></span>
                    ) : captchaVerified ? (
-                      <Check className="w-4 h-4 text-sky-400 font-bold" strokeWidth={4} />
+                      <Check className="w-4 h-4 text-sky-500 font-bold" strokeWidth={4} />
                    ) : null}
                 </div>
-                <span className="text-white font-extrabold text-xs select-none tracking-wide">
+                <span className="text-slate-800 font-extrabold text-xs select-none tracking-wide">
                    I'm not a robot
                 </span>
               </div>
               <div className="flex items-center gap-1 opacity-80">
-                <Shield className="w-3.5 h-3.5 text-sky-400" />
-                <span className="text-[10px] font-extrabold text-slate-400">reCAPTCHA</span>
+                <Shield className="w-3.5 h-3.5 text-sky-500" />
+                <span className="text-[10px] font-extrabold text-slate-600">reCAPTCHA</span>
               </div>
             </div>
           </div>
@@ -340,7 +342,7 @@ export default function Login() {
           <button 
             type="submit"
             disabled={isLoading}
-            className="mt-1 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 hover:from-sky-400 hover:to-blue-500 text-white py-2.5 sm:py-3 px-5 rounded-full font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-xl shadow-blue-950/50 border border-sky-400/30 transition-all active:scale-98 disabled:opacity-50"
+            className="mt-1 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 hover:from-blue-600 hover:to-indigo-600 text-white py-2.5 px-5 rounded-full font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-xl border border-white/30 transition-all active:scale-98 disabled:opacity-50"
           >
             {isLoading ? (
                <span className="animate-spin h-4 w-4 border-2 border-white/40 border-t-white rounded-full"></span>
@@ -355,11 +357,11 @@ export default function Login() {
 
         {/* OR Divider */}
         <div className="relative flex py-1.5 items-center my-1">
-           <div className="flex-grow border-t border-sky-900/50"></div>
-           <span className="flex-shrink-0 mx-2.5 px-3 py-0.5 bg-[#0f172a]/80 backdrop-blur-md rounded-full text-slate-300 text-[10px] font-black uppercase tracking-widest border border-sky-900/50 shadow-sm">
+           <div className="flex-grow border-t border-white/30"></div>
+           <span className="flex-shrink-0 mx-2.5 px-3 py-0.5 bg-white/20 backdrop-blur-md rounded-full text-white text-[10px] font-black uppercase tracking-widest border border-white/30 shadow-sm">
              OR
            </span>
-           <div className="flex-grow border-t border-sky-900/50"></div>
+           <div className="flex-grow border-t border-white/30"></div>
         </div>
 
         {/* Bottom Dual Pill Buttons (Demo Mode & Register/Sign In) */}
@@ -370,9 +372,9 @@ export default function Login() {
               loginAsGuest('student');
               navigate('/dashboard', { state: { isDemoMode: true } });
             }}
-            className="flex items-center justify-center gap-1.5 bg-[#0f172a]/85 hover:bg-[#1e293b] backdrop-blur-xl border border-sky-900/60 text-white py-2.5 px-3 rounded-full font-extrabold text-xs transition-all shadow-md active:scale-95"
+            className="flex items-center justify-center gap-1.5 bg-[#0f172a]/75 hover:bg-[#0f172a]/90 backdrop-blur-md border border-white/30 text-white py-2 px-3 rounded-full font-extrabold text-xs transition-all shadow-md active:scale-95"
           >
-            <PlayCircle className="w-4 h-4 text-sky-400" /> Demo Mode
+            <PlayCircle className="w-4 h-4 text-sky-300" /> Demo Mode
           </button>
 
           <button 
@@ -381,12 +383,12 @@ export default function Login() {
                setIsLogin(!isLogin);
                setError(null);
             }} 
-            className="flex items-center justify-center gap-1.5 bg-[#0f172a]/85 hover:bg-[#1e293b] backdrop-blur-xl border border-sky-900/60 text-white py-2.5 px-3 rounded-full font-extrabold text-xs transition-all shadow-md active:scale-95"
+            className="flex items-center justify-center gap-1.5 bg-[#0f172a]/75 hover:bg-[#0f172a]/90 backdrop-blur-md border border-white/30 text-white py-2 px-3 rounded-full font-extrabold text-xs transition-all shadow-md active:scale-95"
           >
             {isLogin ? (
-              <><UserPlus className="w-4 h-4 text-sky-400" /> Register</>
+              <><UserPlus className="w-4 h-4 text-sky-300" /> Register</>
             ) : (
-              <><LogIn className="w-4 h-4 text-sky-400" /> Sign In</>
+              <><LogIn className="w-4 h-4 text-blue-300" /> Sign In</>
             )}
           </button>
         </div>
