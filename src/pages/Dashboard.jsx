@@ -657,6 +657,23 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[#e8eff5] dark:bg-slate-900 font-sans transition-colors duration-300">
       
+      {/* Persistent Demo Mode Banner */}
+      {isDemoUser && (
+        <div className="bg-gradient-to-r from-slate-950 via-sky-950 to-slate-950 border-b border-sky-500/40 text-sky-200 px-4 py-2 text-xs font-semibold flex items-center justify-between shadow-lg sticky top-0 z-50">
+          <div className="flex items-center gap-2">
+            <span className="flex h-2.5 w-2.5 rounded-full bg-sky-400 animate-ping"></span>
+            <Eye className="w-4 h-4 text-sky-400 shrink-0" />
+            <span><strong>Demo Mode (View-Only):</strong> You are exploring as a guest. Log in to ask doubts or interact.</span>
+          </div>
+          <button 
+            onClick={() => navigate('/')} 
+            className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white px-3.5 py-1 rounded-full text-[11px] font-extrabold transition-all shrink-0 ml-2 shadow-sm"
+          >
+            Log In / Register ➔
+          </button>
+        </div>
+      )}
+
       {/* Navbar */}
       <nav className="sticky top-0 z-40 bg-[#0f172a] border-b border-blue-900 px-3 py-2 sm:px-6 lg:px-8 shadow-md">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-2">
@@ -1181,11 +1198,11 @@ export default function Dashboard() {
                    <span className="flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5 text-cyan-300" /> View Faculty Notes & PDFs</span>
                    <span className="text-cyan-300">→</span>
                 </button>
-                <button onClick={() => { setIsModalOpen(true); }} className="w-full text-left p-2 rounded-lg bg-white/10 hover:bg-white/20 font-semibold transition-colors flex items-center justify-between">
+                <button onClick={() => requireLoginGuard(() => setIsModalOpen(true))} className="w-full text-left p-2 rounded-lg bg-white/10 hover:bg-white/20 font-semibold transition-colors flex items-center justify-between">
                    <span>Ask Syllabus Doubt</span>
                    <span className="text-blue-300">→</span>
                 </button>
-                <button onClick={() => { setIsAnnouncementModalOpen(true); }} className="w-full text-left p-2 rounded-lg bg-white/10 hover:bg-white/20 font-semibold transition-colors flex items-center justify-between">
+                <button onClick={() => requireLoginGuard(() => setIsAnnouncementModalOpen(true))} className="w-full text-left p-2 rounded-lg bg-white/10 hover:bg-white/20 font-semibold transition-colors flex items-center justify-between">
                    <span>Broadcast Live Alert</span>
                    <span className="text-blue-300">→</span>
                 </button>
@@ -2206,7 +2223,7 @@ export default function Dashboard() {
         {/* Center Fixed Action Button: (+) ASK SYLLABUS DOUBT */}
         <div className="relative -top-4">
            <button 
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => requireLoginGuard(() => setIsModalOpen(true))}
               className="w-13 h-13 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl shadow-lg flex items-center justify-center border-4 border-white dark:border-slate-900 active:scale-95 transition-all"
               title="Ask Syllabus Doubt"
            >

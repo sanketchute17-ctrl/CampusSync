@@ -116,6 +116,10 @@ export default function DoubtCard({ doubt, currentUser, userProfile, isUserAnony
   const upvotesCount = doubt.upvotes || 0;
 
   const handleUpvote = async () => {
+    if (!currentUser || currentUser.uid === "guest_user" || isUserAnonymous) {
+      if (onRequireLogin) onRequireLogin();
+      return;
+    }
     if (!doubt.id) return;
     
     // Optimistic UI state
