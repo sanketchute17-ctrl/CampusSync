@@ -146,6 +146,14 @@ export default function Login() {
       {/* 2. Background Overlay (Made completely transparent, letting video shine) */}
       <div className="absolute inset-0 bg-black/10 z-10"></div>
 
+      {/* Top Left Branding Logo & Name */}
+      <div className="absolute top-4 left-4 sm:top-6 sm:left-8 z-30 flex items-center gap-2.5 sm:gap-3 bg-black/40 backdrop-blur-md px-3 sm:px-4 py-2 rounded-2xl border border-white/10 shadow-lg">
+        <img src="/app-logo.png" alt="CampusSync Logo" className="h-8 sm:h-10 w-auto object-contain rounded-lg" />
+        <span className="font-black text-lg sm:text-xl text-white tracking-tight leading-none">
+          Campus<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Sync</span>
+        </span>
+      </div>
+
       {/* 3. Floating Light Blobs (CampusSync Theme: Purple & Orange) */}
       <div className="absolute top-[10%] left-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-purple-700/30 rounded-full blur-[80px] sm:blur-[120px] z-10 mix-blend-screen animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-[10%] right-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-orange-600/30 rounded-full blur-[80px] sm:blur-[120px] z-10 mix-blend-screen animate-pulse pointer-events-none delay-1000"></div>
@@ -167,10 +175,7 @@ export default function Login() {
             </div>
 
             <div className="w-full flex flex-col items-center justify-center mb-1 sm:mb-3">
-              <div className="flex items-center gap-2 mb-2 px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/10 rounded-full backdrop-blur-md shadow-sm">
-                <GraduationCap className="w-4 h-4 text-blue-400" />
-                <span className="text-[11px] font-bold tracking-widest text-blue-200 uppercase">CampusSync Network</span>
-              </div>
+              <img src="/app-logo.png" alt="CampusSync Logo" className="h-12 sm:h-14 w-auto object-contain mb-2 drop-shadow-md" />
               <h1 className="text-xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-indigo-300 tracking-wider uppercase border-b-2 sm:border-b-[3px] border-blue-500/70 pb-1 sm:pb-2 inline-block">
                 {displayText}
               </h1>

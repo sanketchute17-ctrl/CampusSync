@@ -368,15 +368,11 @@ export default function FacultyDashboard() {
       {/* Sidebar */}
       <aside className="w-64 bg-[#0f172a] text-white flex flex-col fixed h-full z-10 hidden md:flex print:hidden">
         <div className="p-6 border-b border-white/10 shrink-0">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-500 p-0.5 shadow-md flex items-center justify-center">
-              <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-blue-400" />
-              </div>
-            </div>
-            <div>
+          <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
+            <img src="/app-logo.png" alt="CampusSync Logo" className="h-9 sm:h-10 w-auto object-contain rounded-lg drop-shadow-md" />
+            <div className="flex flex-col justify-center">
               <h1 className="font-extrabold text-base leading-none text-white tracking-tight">Campus<span className="text-blue-400">Sync</span></h1>
-              <span className="text-[10px] text-slate-400 font-medium tracking-wider">Faculty Portal</span>
+              <span className="text-[10px] text-slate-400 font-medium tracking-wider mt-0.5">Faculty Portal</span>
             </div>
           </div>
         </div>
@@ -410,11 +406,7 @@ export default function FacultyDashboard() {
         {/* Top Header */}
         <header className="h-16 sm:h-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-3 sm:px-8 flex items-center justify-between shrink-0 sticky top-0 z-20 shadow-sm print:hidden">
           <div className="md:hidden flex items-center gap-2.5 font-black text-sm text-slate-800 dark:text-slate-100 shrink-0">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-500 p-0.5 flex items-center justify-center shadow-sm">
-              <div className="w-full h-full bg-slate-900 rounded-[6px] flex items-center justify-center">
-                <GraduationCap className="w-4 h-4 text-blue-400" />
-              </div>
-            </div>
+            <img src="/app-logo.png" alt="CampusSync Logo" className="h-8 w-auto object-contain rounded-lg" />
             <span className="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white">Campus<span className="text-blue-500">Sync</span></span>
           </div>
           <div className="hidden md:flex flex-col">
@@ -1067,11 +1059,7 @@ export default function FacultyDashboard() {
              </div>
              <div className="p-8">
                <div className="flex flex-col items-center mb-6">
-                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-500 p-0.5 shadow-lg flex items-center justify-center mb-3">
-                   <div className="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center">
-                     <GraduationCap className="w-9 h-9 text-blue-400" />
-                   </div>
-                 </div>
+                 <img src="/app-logo.png" alt="CampusSync Logo" className="h-16 w-auto object-contain mb-3 drop-shadow-md" />
                  <h3 className="text-2xl font-black text-slate-800 tracking-tight">CampusSync</h3>
                  <span className="text-xs font-bold bg-indigo-100 text-indigo-700 px-2.5 py-0.5 rounded-full mt-1">Version 1.0.0</span>
                </div>

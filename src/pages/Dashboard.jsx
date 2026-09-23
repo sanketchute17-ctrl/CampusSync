@@ -649,18 +649,13 @@ export default function Dashboard() {
       {/* Navbar */}
       <nav className="sticky top-0 z-40 bg-[#0f172a] border-b border-blue-900 px-3 py-2 sm:px-6 lg:px-8 shadow-md">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-2">
-          {/* Logo & College Branding (Always visible on mobile & desktop) */}
-          <div className="flex items-center gap-2.5 cursor-pointer shrink-0" onClick={() => navigate('/')}>
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-500 p-0.5 shadow-md flex items-center justify-center">
-              <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-blue-400" />
-              </div>
-            </div>
-            <div className="flex flex-col">
+          <div className="flex items-center gap-2.5 sm:gap-3 cursor-pointer shrink-0" onClick={() => navigate('/')}>
+            <img src="/app-logo.png" alt="CampusSync Logo" className="h-9 sm:h-11 w-auto object-contain rounded-xl drop-shadow-md" />
+            <div className="flex flex-col justify-center">
               <span className="font-extrabold text-base sm:text-lg text-white tracking-tight leading-none">
                 Campus<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Sync</span>
               </span>
-              <span className="text-[10px] text-blue-300 font-medium tracking-wider uppercase">Academic Network</span>
+              <span className="text-[10px] text-blue-300 font-medium tracking-wider uppercase mt-0.5">Academic Network</span>
             </div>
           </div>
 
@@ -1961,11 +1956,7 @@ export default function Dashboard() {
                 
                 {/* Branding Banner */}
                 <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50/50 to-slate-50 dark:from-slate-800/50 dark:to-slate-800 p-5 rounded-2xl border border-blue-100 dark:border-slate-700">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-500 p-0.5 shadow-lg flex items-center justify-center mb-3">
-                    <div className="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center">
-                      <GraduationCap className="w-8 h-8 text-blue-400" />
-                    </div>
-                  </div>
+                  <img src="/app-logo.png" alt="CampusSync Logo" className="h-16 w-auto object-contain mb-3 drop-shadow-md" />
                   <h3 className="text-xl font-black text-slate-800 dark:text-slate-100 tracking-tight">CampusSync</h3>
                   <div className="flex items-center gap-2 mt-1">
                     <span className="text-[11px] font-extrabold bg-blue-600 text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider">v1.2.0 Production</span>
