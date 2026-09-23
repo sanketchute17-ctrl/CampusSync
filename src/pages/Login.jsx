@@ -166,10 +166,10 @@ export default function Login() {
           </p>
 
           {/* 3. Student & Faculty portal toggle BELOW */}
-          <div className="flex bg-white/20 backdrop-blur-md p-1 rounded-full w-48 sm:w-56 justify-between relative border border-white/30 shadow-md">
-            <div className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-gradient-to-r from-sky-400 to-blue-500 rounded-full transition-all duration-300 shadow-sm ${role === 'faculty' ? 'translate-x-[100%]' : 'translate-x-0'}`}></div>
-            <button type="button" onClick={() => { setRole('student'); setError(null); }} className={`flex-1 py-1 text-xs font-extrabold z-10 transition-colors ${role === 'student' ? 'text-white' : 'text-white/70'}`}>Student</button>
-            <button type="button" onClick={() => { setRole('faculty'); setError(null); }} className={`flex-1 py-1 text-xs font-extrabold z-10 transition-colors ${role === 'faculty' ? 'text-white' : 'text-white/70'}`}>Faculty</button>
+          <div className="flex bg-white/95 backdrop-blur-md p-1 rounded-full w-48 sm:w-56 justify-between relative border border-white shadow-md">
+            <div className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-slate-900 rounded-full transition-all duration-300 shadow-sm ${role === 'faculty' ? 'translate-x-[100%]' : 'translate-x-0'}`}></div>
+            <button type="button" onClick={() => { setRole('student'); setError(null); }} className={`flex-1 py-1 text-xs font-extrabold z-10 transition-colors ${role === 'student' ? 'text-white' : 'text-slate-700'}`}>Student</button>
+            <button type="button" onClick={() => { setRole('faculty'); setError(null); }} className={`flex-1 py-1 text-xs font-extrabold z-10 transition-colors ${role === 'faculty' ? 'text-white' : 'text-slate-700'}`}>Faculty</button>
           </div>
         </div>
 
@@ -303,7 +303,7 @@ export default function Login() {
               <button
                 type="button"
                 onClick={handleForgotPassword}
-                className="px-3 py-1 bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-sky-200 hover:text-white font-extrabold text-[11px] rounded-full transition-all shadow-sm"
+                className="px-3 py-1 bg-white hover:bg-slate-100 border border-white text-slate-900 font-extrabold text-[11px] rounded-full transition-all shadow-sm"
               >
                 Forgot Password?
               </button>
@@ -347,10 +347,10 @@ export default function Login() {
           <button 
             type="submit"
             disabled={isLoading}
-            className="mt-1 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-400 hover:from-sky-300 hover:to-blue-400 text-white py-2.5 sm:py-3 px-5 rounded-full font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-xl shadow-blue-950/40 hover:shadow-sky-400/50 border border-white/30 transition-all active:scale-98 disabled:opacity-50"
+            className="mt-1 w-full flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 py-2.5 sm:py-3 px-5 rounded-full font-black text-xs sm:text-sm tracking-wider uppercase shadow-lg border border-white transition-all active:scale-98 disabled:opacity-50"
           >
             {isLoading ? (
-               <span className="animate-spin h-4 w-4 border-2 border-white/40 border-t-white rounded-full"></span>
+               <span className="animate-spin h-4 w-4 border-2 border-slate-400 border-t-slate-800 rounded-full"></span>
             ) : (
                <>
                  {isLogin ? 'SIGN IN' : 'CREATE ACCOUNT'}
@@ -363,7 +363,7 @@ export default function Login() {
         {/* OR Divider */}
         <div className="relative flex py-1.5 items-center my-1">
            <div className="flex-grow border-t border-white/30"></div>
-           <span className="flex-shrink-0 mx-2.5 px-3 py-0.5 bg-white/20 backdrop-blur-md rounded-full text-white text-[10px] font-black uppercase tracking-widest border border-white/30 shadow-sm">
+           <span className="flex-shrink-0 mx-2.5 px-3 py-0.5 bg-white rounded-full text-slate-900 text-[10px] font-black uppercase tracking-widest border border-white shadow-sm">
              OR
            </span>
            <div className="flex-grow border-t border-white/30"></div>
@@ -377,9 +377,9 @@ export default function Login() {
               loginAsGuest('student');
               navigate('/dashboard', { state: { isDemoMode: true } });
             }}
-            className="flex items-center justify-center gap-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 text-white py-2.5 px-3 rounded-full font-extrabold text-xs transition-all shadow-md active:scale-95"
+            className="flex items-center justify-center gap-1.5 bg-white hover:bg-slate-100 border border-white text-slate-900 py-2.5 px-3 rounded-full font-extrabold text-xs transition-all shadow-md active:scale-95"
           >
-            <PlayCircle className="w-4 h-4 text-sky-300" /> Demo Mode
+            <PlayCircle className="w-4 h-4 text-sky-600" /> Demo Mode
           </button>
 
           <button 
@@ -388,12 +388,12 @@ export default function Login() {
                setIsLogin(!isLogin);
                setError(null);
             }} 
-            className="flex items-center justify-center gap-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 text-white py-2.5 px-3 rounded-full font-extrabold text-xs transition-all shadow-md active:scale-95"
+            className="flex items-center justify-center gap-1.5 bg-white hover:bg-slate-100 border border-white text-slate-900 py-2.5 px-3 rounded-full font-extrabold text-xs transition-all shadow-md active:scale-95"
           >
             {isLogin ? (
-              <><UserPlus className="w-4 h-4 text-sky-300" /> Register</>
+              <><UserPlus className="w-4 h-4 text-sky-600" /> Register</>
             ) : (
-              <><LogIn className="w-4 h-4 text-blue-300" /> Sign In</>
+              <><LogIn className="w-4 h-4 text-sky-600" /> Sign In</>
             )}
           </button>
         </div>
