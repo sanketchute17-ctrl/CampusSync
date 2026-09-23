@@ -393,15 +393,6 @@ export default function Login() {
 
       </div>
 
-      {/* Bonus: Fixed Mute/Play Button */}
-      <button 
-        onClick={() => setIsVideoMuted(!isVideoMuted)}
-        className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-50 w-9 h-9 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all shadow-xl"
-        title={isVideoMuted ? "Unmute Background" : "Mute Background"}
-      >
-        {isVideoMuted ? <VolumeX className="w-4 h-4 sm:w-5 sm:h-5 text-white/70" /> : <Volume2 className="w-4 h-4 sm:w-5 sm:h-5 text-white" />}
-      </button>
-
     </div>
   );
 }
