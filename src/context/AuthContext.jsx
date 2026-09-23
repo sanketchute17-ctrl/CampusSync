@@ -17,6 +17,10 @@ export function AuthProvider({ children }) {
 
     const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
       if (user) {
+        try {
+          sessionStorage.removeItem('campussync_demo_mode');
+          sessionStorage.removeItem('campussync_demo_role');
+        } catch (e) {}
         setCurrentUser(user);
         setIsAnonymous(false);
 
@@ -51,9 +55,42 @@ export function AuthProvider({ children }) {
           setLoading(false);
         });
       } else {
-        setCurrentUser(null);
-        setUserProfile(null);
-        setRole(null);
+        // Check if session has active Demo Mode
+        let isDemo = false;
+        let demoRole = 'student';
+        try {
+          isDemo = sessionStorage.getItem('campussync_demo_mode') === 'true';
+          demoRole = sessionStorage.getItem('campussync_demo_role') || 'student';
+        } catch (e) {}
+
+        if (isDemo) {
+          setIsAnonymous(true);
+          setCurrentUser({
+            uid: 'guest_user',
+            email: 'guest@campussync.edu',
+            isAnonymous: true,
+            displayName: 'Guest User (Demo)'
+          });
+          setRole(demoRole);
+          setUserProfile({
+            uid: 'guest_user',
+            fullName: 'Guest User (Demo)',
+            email: 'guest@campussync.edu',
+            role: demoRole,
+            department: 'Nagpur Campus',
+            branch: 'Nagpur Campus',
+            regNo: 'DEMO-USER',
+            dob: 'Not provided',
+            about: 'Anonymous Guest User Session',
+            profilePicUrl: ''
+          });
+        } else {
+          setCurrentUser(null);
+          setUserProfile(null);
+          setRole(null);
+          setIsAnonymous(false);
+        }
+
         if (unsubscribeProfile) {
           unsubscribeProfile();
           unsubscribeProfile = null;
@@ -69,27 +106,37 @@ export function AuthProvider({ children }) {
   }, []);
 
   const loginAsGuest = (guestRole = 'student') => {
-    setIsAnonymous(true);
-    setCurrentUser(null);
     const normalizedRole = guestRole.toLowerCase().trim();
+    const guestUserObj = {
+      uid: 'guest_user',
+      email: 'guest@campussync.edu',
+      isAnonymous: true,
+      displayName: 'Guest User (Demo)'
+    };
+    setIsAnonymous(true);
+    setCurrentUser(guestUserObj);
     setRole(normalizedRole);
     setUserProfile({
       uid: 'guest_user',
-      fullName: 'Ghost Protocol',
+      fullName: 'Guest User (Demo)',
       email: 'guest@campussync.edu',
       role: normalizedRole,
       department: 'Nagpur Campus',
       branch: 'Nagpur Campus',
-      regNo: 'GUEST-001',
+      regNo: 'DEMO-USER',
       dob: 'Not provided',
       about: 'Anonymous Guest User Session',
       profilePicUrl: ''
     });
+    try {
+      sessionStorage.setItem('campussync_demo_mode', 'true');
+      sessionStorage.setItem('campussync_demo_role', normalizedRole);
+    } catch (e) {}
     setLoading(false);
   };
 
   const updateProfile = async (updates) => {
-    if (!currentUser) return;
+    if (!currentUser || isAnonymous) return;
     try {
       const userRef = doc(db, 'users', currentUser.uid);
       await setDoc(userRef, updates, { merge: true });
@@ -102,6 +149,10 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
+    try {
+      sessionStorage.removeItem('campussync_demo_mode');
+      sessionStorage.removeItem('campussync_demo_role');
+    } catch (e) {}
     setIsAnonymous(false);
     setCurrentUser(null);
     setUserProfile(null);
