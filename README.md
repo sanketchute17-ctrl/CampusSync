@@ -1,6 +1,6 @@
-# 🎓 Raisoni PeerSpace
+# 🎓 CampusSync
 
-> **The Next-Gen Campus Collaboration & AI Learning Platform for Raisoni College**
+> **The Next-Gen Campus Collaboration & AI Learning Platform for College Students**
 
 [![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-5-purple.svg)](https://vitejs.dev/)
@@ -11,18 +11,18 @@
 
 ---
 
-## 🌟 What is Raisoni PeerSpace?
+## 🌟 What is CampusSync?
 
-**Raisoni PeerSpace** is a unified digital campus platform built for college students and faculty. It bridges the gap between academic doubts, peer collaboration, faculty mentorship, and AI-powered study assistance — all in one clean, easy-to-use application.
+**CampusSync** is a unified digital campus platform built for college students and faculty. It bridges the gap between academic doubts, peer collaboration, faculty mentorship, and AI-powered study assistance — all in one clean, easy-to-use application.
 
-Whether a student is confused by a complex Java concept, wants an anonymous opinion on a syllabus topic, or needs direct mentorship from a professor, **PeerSpace makes campus learning interactive, fast, and accessible 24/7.**
+Whether a student is confused by a complex Java concept, wants an anonymous opinion on a syllabus topic, or needs direct mentorship from a professor, **CampusSync makes campus learning interactive, fast, and accessible 24/7.**
 
 ---
 
-## 🚀 Why Colleges Should Adopt PeerSpace (Key Advantages)
+## 🚀 Why Colleges Should Adopt CampusSync (Key Advantages)
 
 ### 💡 For Students
-- **Instant 24/7 AI Assistance**: Ask complex technical doubts anytime with PeerSpace AI and get instant simplified explanations.
+- **Instant 24/7 AI Assistance**: Ask complex technical doubts anytime with CampusSync AI and get instant simplified explanations.
 - **Judgement-Free Learning**: Ask questions anonymously using **Ghost Protocol** without fear of being judged by peers.
 - **Smart Peer Study Feed**: View top-voted syllabus questions, answer peers, and earn **XP Points** to climb the Campus Leaderboard.
 - **Direct Faculty Access**: Submit career or subject mentorship requests directly to relevant faculty members.
@@ -134,4 +134,4 @@ Open **two terminals**:
 
 ## 📜 License & Copyright
 
-Created for **G H Raisoni College of Engineering and Management**. All rights reserved.
+Created for Higher Education Academic Collaboration. All rights reserved.

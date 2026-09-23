@@ -14,7 +14,7 @@ function ProtectedRoute({ children, requiredRole }) {
     return (
       <div className="min-h-screen w-full bg-[#0f172a] flex flex-col items-center justify-center text-white">
         <Loader2 className="w-10 h-10 animate-spin text-purple-500 mb-3" />
-        <p className="text-sm font-bold text-slate-300">Authenticating Raisoni PeerSpace session...</p>
+        <p className="text-sm font-bold text-slate-300">Authenticating CampusSync session...</p>
       </div>
     );
   }

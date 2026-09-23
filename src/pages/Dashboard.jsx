@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Search, Bell, PlusCircle, Ghost, User, X, BookOpen, Trophy, Hash, Star, LogOut, Camera, LayoutDashboard, ShieldQuestion, MapPin, Mic, Loader2, Paperclip, BarChart2, History, Trash2, Moon, Sun, Bookmark, Info, Sparkles, Send, MessageSquare, CheckCircle2, Zap, Flame, Eye, KeyRound, Lock, Mail } from 'lucide-react';
+import { Search, Bell, PlusCircle, Ghost, User, X, BookOpen, Trophy, Hash, Star, LogOut, Camera, LayoutDashboard, ShieldQuestion, MapPin, Mic, Loader2, Paperclip, BarChart2, History, Trash2, Moon, Sun, Bookmark, Info, Sparkles, Send, MessageSquare, CheckCircle2, Zap, Flame, Eye, KeyRound, Lock, Mail, GraduationCap } from 'lucide-react';
 import toast from 'react-hot-toast';
 import DoubtCard from '../components/DoubtCard';
 import FacultyCareerConnect from '../components/FacultyCareerConnect';
@@ -650,9 +650,18 @@ export default function Dashboard() {
       <nav className="sticky top-0 z-40 bg-[#0f172a] border-b border-blue-900 px-3 py-2 sm:px-6 lg:px-8 shadow-md">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-2">
           {/* Logo & College Branding (Always visible on mobile & desktop) */}
-          <div className="flex items-center gap-2 cursor-pointer shrink-0" onClick={() => navigate('/')}>
-            <img src="/college-logo.png" alt="Raisoni Logo" className="h-9 sm:h-11 w-auto object-contain bg-white/10 rounded px-1.5" />
-            <span className="hidden sm:inline font-black text-sm sm:text-base text-white tracking-tight">PeerSpace</span>
+          <div className="flex items-center gap-2.5 cursor-pointer shrink-0" onClick={() => navigate('/')}>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-500 p-0.5 shadow-md flex items-center justify-center">
+              <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+                <GraduationCap className="w-5 h-5 text-blue-400" />
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-extrabold text-base sm:text-lg text-white tracking-tight leading-none">
+                Campus<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Sync</span>
+              </span>
+              <span className="text-[10px] text-blue-300 font-medium tracking-wider uppercase">Academic Network</span>
+            </div>
           </div>
 
           {/* Search Bar */}
@@ -1147,10 +1156,10 @@ export default function Dashboard() {
              </ul>
           </div>
 
-          {/* The Raisoni Promise Card */}
+          {/* The CampusSync Promise Card */}
           <div className="bg-gradient-to-br from-[#0f172a] to-blue-900 rounded-2xl p-4 shadow-lg border border-blue-800 text-slate-50 relative overflow-hidden">
              <Ghost className="absolute -right-4 -bottom-4 w-28 h-28 opacity-10" />
-             <h4 className="font-black text-base mb-1.5 relative z-10">The Raisoni Promise</h4>
+             <h4 className="font-black text-base mb-1.5 relative z-10">The CampusSync Promise</h4>
              <p className="text-xs text-blue-200 block font-medium leading-relaxed relative z-10">
                No question is too simple. Ask anonymously, learn confidently, and help others when you can!
              </p>
@@ -1935,7 +1944,7 @@ export default function Dashboard() {
                       <Sparkles className="w-5 h-5 text-yellow-300" />
                    </div>
                    <div>
-                      <h2 className="text-lg sm:text-xl font-black text-white leading-tight">About Raisoni PeerSpace</h2>
+                      <h2 className="text-lg sm:text-xl font-black text-white leading-tight">About CampusSync</h2>
                       <p className="text-xs text-blue-200 font-medium">Empowering Campus Learning & Doubt Resolution</p>
                    </div>
                 </div>
@@ -1952,8 +1961,12 @@ export default function Dashboard() {
                 
                 {/* Branding Banner */}
                 <div className="flex flex-col items-center text-center bg-gradient-to-b from-blue-50/50 to-slate-50 dark:from-slate-800/50 dark:to-slate-800 p-5 rounded-2xl border border-blue-100 dark:border-slate-700">
-                  <img src="/college-logo.png" alt="Raisoni Logo" className="h-14 mb-3 object-contain" />
-                  <h3 className="text-xl font-black text-slate-800 dark:text-slate-100 tracking-tight">Raisoni PeerSpace</h3>
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-500 p-0.5 shadow-lg flex items-center justify-center mb-3">
+                    <div className="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center">
+                      <GraduationCap className="w-8 h-8 text-blue-400" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-black text-slate-800 dark:text-slate-100 tracking-tight">CampusSync</h3>
                   <div className="flex items-center gap-2 mt-1">
                     <span className="text-[11px] font-extrabold bg-blue-600 text-white px-2.5 py-0.5 rounded-full uppercase tracking-wider">v1.2.0 Production</span>
                     <span className="text-[11px] font-bold bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300 px-2.5 py-0.5 rounded-full flex items-center gap-1">
@@ -1961,7 +1974,7 @@ export default function Dashboard() {
                     </span>
                   </div>
                   <p className="text-xs text-slate-600 dark:text-slate-300 font-medium mt-3 leading-relaxed max-w-md">
-                    Raisoni PeerSpace is an official student-faculty peer learning ecosystem designed for G.H. Raisoni College of Engineering, Nagpur. Ask doubts, get instant AI & faculty verified answers, access syllabus resources, and connect effortlessly.
+                    CampusSync is an official student-faculty peer learning ecosystem designed for college students. Ask doubts, get instant AI & faculty verified answers, access syllabus resources, and connect effortlessly.
                   </p>
                 </div>
 
@@ -2026,7 +2039,7 @@ export default function Dashboard() {
 
                    <div className="mt-4 pt-3 border-t border-blue-800/60 flex items-center justify-between gap-3">
                       <a 
-                         href="mailto:sanketchute17@gmail.com?subject=Raisoni PeerSpace Support Request"
+                         href="mailto:sanketchute17@gmail.com?subject=CampusSync Support Request"
                          className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-3 rounded-xl text-xs text-center transition-colors shadow-md flex items-center justify-center gap-1.5"
                       >
                          <Send className="w-3.5 h-3.5" /> Email Support Team
@@ -2159,7 +2172,7 @@ export default function Dashboard() {
                  {selectedAnnouncement.text}
                </div>
                <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-semibold border-t border-slate-100 dark:border-slate-800 pt-3">
-                 <span>By: <strong>{selectedAnnouncement.author || 'Raisoni Admin'}</strong></span>
+                 <span>By: <strong>{selectedAnnouncement.author || 'CampusSync Admin'}</strong></span>
                  <span className="text-cyan-600 dark:text-cyan-400 font-bold">Official Announcement</span>
                </div>
              </div>

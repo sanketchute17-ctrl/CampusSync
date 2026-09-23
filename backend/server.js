@@ -351,8 +351,8 @@ app.post('/api/ai-chat', async (req, res) => {
   }
 
   const systemPrompt = examMode 
-    ? `You are an expert strict college professor AI for Raisoni College. Present your answer using bullet points, short clear definitions, and specifically format your content to be easily scannable "Short Answer (2-5 marks)" style. Use markdown bolding for key terms.`
-    : `You are a friendly, witty, and deeply helpful AI study buddy for a college student at Raisoni College. Use analogies and simple terms to explain complex concepts. Don't use overly academic language.`;
+    ? `You are an expert strict college professor AI for CampusSync. Present your answer using bullet points, short clear definitions, and specifically format your content to be easily scannable "Short Answer (2-5 marks)" style. Use markdown bolding for key terms.`
+    : `You are a friendly, witty, and deeply helpful AI study buddy for a college student on CampusSync. Use analogies and simple terms to explain complex concepts. Don't use overly academic language.`;
 
   const aiResult = await callAI({ systemPrompt, userPrompt: message });
 
@@ -503,7 +503,7 @@ app.post('/api/user-insights', async (req, res) => {
 
   const chartData = pastMonths.map(m => ({ name: m.name, questions: m.questions, answers: m.answers }));
 
-  const prompt = `You are an encouraging college AI mentor for Raisoni College. 
+  const prompt = `You are an encouraging college AI mentor for CampusSync. 
   A student named ${userFullName || 'Student'} has the following stats:
   - Questions Asked: ${questionsAsked}
   - Upvotes Received: ${upvotesReceived}
@@ -827,12 +827,12 @@ app.get('/api/campus-knowledge/search', (req, res) => {
 // 🏆 GAMIFICATION & ACHIEVEMENTS APIs
 // ==========================================
 let achievementsList = [
-  { id: "first_question", title: "First Question", desc: "Asked your first syllabus doubt on PeerSpace", icon: "❓", xp: 10 },
+  { id: "first_question", title: "First Question", desc: "Asked your first syllabus doubt on CampusSync", icon: "❓", xp: 10 },
   { id: "first_answer", title: "First Answer", desc: "Helped a classmate by answering a question", icon: "🎯", xp: 20 },
   { id: "streak_7", title: "7 Day Streak", desc: "Maintained a 7-day continuous study streak", icon: "🔥", xp: 50 },
   { id: "resource_contributor", title: "Resource Contributor", desc: "Uploaded study materials to Campus Study Hub", icon: "📚", xp: 30 },
   { id: "problem_solver", title: "Problem Solver", desc: "Had 5 answers accepted as correct solutions", icon: "💡", xp: 100 },
-  { id: "faculty_helper", title: "Faculty Helper", desc: "Answer verified by Raisoni Faculty", icon: "👨‍🏫", xp: 75 },
+  { id: "faculty_helper", title: "Faculty Helper", desc: "Answer verified by College Faculty", icon: "👨‍🏫", xp: 75 },
   { id: "placement_ready", title: "Placement Ready", desc: "Shared interview experience or placement prep notes", icon: "🚀", xp: 40 }
 ];
 
@@ -844,7 +844,7 @@ app.get('/api/achievements', (req, res) => {
 const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
   app.listen(PORT, () => {
-    console.log(`🚀 Raisoni PeerSpace Backend running on port ${PORT}`);
+    console.log(`🚀 CampusSync Backend running on port ${PORT}`);
   });
 }
 

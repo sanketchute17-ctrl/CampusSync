@@ -126,7 +126,7 @@ export default function PeerGroups({ currentUser, userProfile }) {
                <Users className="w-3.5 h-3.5" /> Peer Learning Community Groups
             </span>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-               Raisoni Student Study Groups
+               CampusSync Student Study Groups
             </h1>
             <p className="text-xs sm:text-sm text-purple-200/90 font-medium leading-relaxed">
                Join dedicated subject study circles, LeetCode placement prep groups, and final year project collaboration channels.

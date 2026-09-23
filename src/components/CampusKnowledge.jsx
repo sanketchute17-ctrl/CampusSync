@@ -24,7 +24,7 @@ export default function CampusKnowledge({ doubts = [], onSelectDoubt }) {
 
   const announcementsList = [
     { id: 201, title: "Mid-Semester Exam Timetable Released for CSE & IT", date: "2026-08-20", category: "Academic" },
-    { id: 202, title: "Raisoni PeerSpace Hackathon Registration Open", date: "2026-08-22", category: "Event" }
+    { id: 202, title: "CampusSync Hackathon Registration Open", date: "2026-08-22", category: "Event" }
   ];
 
   const handleGlobalSearch = (e) => {
@@ -57,7 +57,7 @@ export default function CampusKnowledge({ doubts = [], onSelectDoubt }) {
              <Sparkles className="w-3.5 h-3.5" /> Campus Knowledge Search Engine
           </span>
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-            Search Entire Raisoni PeerSpace Ecosystem
+            Search Entire CampusSync Ecosystem
           </h1>
           <p className="text-xs sm:text-sm text-blue-200/90 font-medium leading-relaxed">
             Instantly search across Student Doubts, Faculty Verified Answers, PYQ Study Notes, Placement Experiences, and Campus Announcements.

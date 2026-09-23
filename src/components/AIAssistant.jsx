@@ -9,7 +9,7 @@ export default function AIAssistant() {
   
   // Chat State
   const [chatMessages, setChatMessages] = useState([
-    { role: 'ai', content: "Hi! I'm your PeerSpace AI Assistant. Ask me any technical topic, and I'll help you prepare!" }
+    { role: 'ai', content: "Hi! I'm your CampusSync AI Assistant. Ask me any technical topic, and I'll help you prepare!" }
   ]);
   const [chatInput, setChatInput] = useState('');
   const [isChatLoading, setIsChatLoading] = useState(false);
@@ -163,7 +163,7 @@ export default function AIAssistant() {
       return `### 💡 Easy Syllabus Explanation:\nIs topic ka mukhya uddeshya system efficiency ko badhana aur logical problem-solving ko asan banana hai. Isko samajhne ke liye key concepts ko chote steps mein divide karein aur real-world examples se compare karein.`;
     }
 
-    return `Here is a clear overview of **"${prompt}"**:\n\n* **Core Definition:** A fundamental concept in your engineering syllabus designed for efficient data/system management.\n* **Key Takeaway:** Always remember the main workflow and syntax.\n* **Study Tip:** Practice solving previous year syllabus doubts on PeerSpace!`;
+    return `Here is a clear overview of **"${prompt}"**:\n\n* **Core Definition:** A fundamental concept in your engineering syllabus designed for efficient data/system management.\n* **Key Takeaway:** Always remember the main workflow and syntax.\n* **Study Tip:** Practice solving previous year syllabus doubts on CampusSync!`;
   };
 
   const handleChatSubmit = async (e) => {
@@ -263,7 +263,7 @@ export default function AIAssistant() {
               </div>
               <div className="flex-1">
                 <h3 className="font-extrabold text-lg flex items-center gap-2">
-                  PeerSpace AI
+                  CampusSync AI
                   <span className="bg-gradient-to-r from-purple-500/30 to-orange-500/30 text-orange-300 text-[10px] uppercase font-bold px-2.5 py-0.5 rounded-full border border-orange-500/30 flex items-center gap-1"><Sparkles className="w-3 h-3 text-orange-400 animate-pulse" /> Live</span>
                 </h3>
                 <p className="text-xs text-blue-300 font-medium">Your personal campus study assistant</p>
@@ -332,7 +332,7 @@ export default function AIAssistant() {
                        </div>
                        <div className="flex items-center gap-1.5">
                          <span className="text-xs font-bold bg-gradient-to-r from-purple-300 via-orange-300 to-amber-200 bg-clip-text text-transparent tracking-wide">
-                           PeerSpace AI is thinking
+                           CampusSync AI is thinking
                          </span>
                          <span className="flex gap-1 items-center ml-1">
                            <span className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
@@ -352,7 +352,7 @@ export default function AIAssistant() {
                       <BookA className="w-6 h-6 text-blue-600" />
                    </div>
                    <h4 className="font-extrabold text-slate-800 mb-1">Confused by a technical word?</h4>
-                   <p className="text-xs text-slate-500 font-medium px-4">Enter a difficult jargon or concept. PeerSpace AI will simplify it for you instantly.</p>
+                   <p className="text-xs text-slate-500 font-medium px-4">Enter a difficult jargon or concept. CampusSync AI will simplify it for you instantly.</p>
                 </div>
 
                 <form onSubmit={handleTranslate} className="mb-4 relative">

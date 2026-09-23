@@ -76,7 +76,7 @@ export function AuthProvider({ children }) {
     setUserProfile({
       uid: 'guest_user',
       fullName: 'Ghost Protocol',
-      email: 'guest@raisoni.ac.in',
+      email: 'guest@campussync.edu',
       role: normalizedRole,
       department: 'Nagpur Campus',
       branch: 'Nagpur Campus',

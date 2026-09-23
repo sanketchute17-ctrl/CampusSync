@@ -270,7 +270,7 @@ export default function DoubtCard({ doubt, currentUser, userProfile, isUserAnony
       </head><body>
       <div class="header">
         <h1>${doubt.title}</h1>
-        <div class="meta">Asked by <strong>${doubt.author}</strong> on Raisoni PeerSpace</div>
+        <div class="meta">Asked by <strong>${doubt.author}</strong> on CampusSync</div>
         ${doubt.description ? `<div class="desc">${doubt.description}</div>` : ''}
       </div>
       <h3>Discussions & Answers (${answersList.filter(a => !a.reported).length})</h3>
@@ -284,7 +284,7 @@ export default function DoubtCard({ doubt, currentUser, userProfile, isUserAnony
           <div class="ans-text">${a.text}</div>
         </div>
       `).join('')}
-      <div class="footer">Generated from Raisoni PeerSpace for Educational Use</div>
+      <div class="footer">Generated from CampusSync for Educational Use</div>
       </body></html>
     `;
     const printWindow = window.open('', '_blank');
@@ -307,7 +307,7 @@ export default function DoubtCard({ doubt, currentUser, userProfile, isUserAnony
       const aiAnswerObj = {
         id: Date.now(),
         text: "Based on my knowledge base, here is a structured answer: \n\n1. Define your core concepts clearly.\n2. Break the problem into smaller modules.\n3. Make sure to test edge cases.\n\nLet me know if you need a code example!",
-        author: "PeerSpace AI",
+        author: "CampusSync AI",
         isVerified: true,
         isAI: true, // Special flag for styling
         timeAgo: "Just now"

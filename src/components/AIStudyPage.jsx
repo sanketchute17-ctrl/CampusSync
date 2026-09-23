@@ -6,7 +6,7 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL ?? (import.meta.env.DEV ? 'ht
 
 export default function AIStudyPage() {
   const [messages, setMessages] = useState([
-     { sender: 'ai', text: "Hello! I'm your Raisoni AI Academic Study Assistant. Select any quick action chip below or ask any syllabus question to get started!" }
+     { sender: 'ai', text: "Hello! I'm your CampusSync AI Academic Study Assistant. Select any quick action chip below or ask any syllabus question to get started!" }
   ]);
   const [inputText, setInputText] = useState('');
   const [isExamMode, setIsExamMode] = useState(false);
@@ -68,7 +68,7 @@ export default function AIStudyPage() {
                 <Sparkles className="w-3.5 h-3.5" /> 24/7 AI Syllabus Assistant
              </span>
              <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-                Raisoni AI Study Workspace
+                CampusSync AI Study Workspace
              </h1>
              <p className="text-xs sm:text-sm text-indigo-200/90 font-medium leading-relaxed">
                 Ask any complex syllabus doubt, generate instant viva Q&A, exam MCQs, unit summaries, or study plans powered by Groq & Gemini AI.

@@ -42,7 +42,7 @@ export default function Login() {
   }, [isVideoMuted]);
 
   const [displayText, setDisplayText] = useState('');
-  const fullText = 'RAISONI PEERSPACE';
+  const fullText = 'CAMPUSSYNC';
 
   useEffect(() => {
     let i = 0;
@@ -69,7 +69,7 @@ export default function Login() {
     // If they typed a Registration Number instead of an email, append college domain
     let parsedEmail = emailOrReg;
     if (!parsedEmail.includes('@')) {
-      parsedEmail = parsedEmail.trim() + '@raisoni.ac.in';
+      parsedEmail = parsedEmail.trim() + '@campussync.edu';
     }
 
     try {
@@ -146,7 +146,7 @@ export default function Login() {
       {/* 2. Background Overlay (Made completely transparent, letting video shine) */}
       <div className="absolute inset-0 bg-black/10 z-10"></div>
 
-      {/* 3. Floating Light Blobs (Raisoni Theme: Purple & Orange) */}
+      {/* 3. Floating Light Blobs (CampusSync Theme: Purple & Orange) */}
       <div className="absolute top-[10%] left-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-purple-700/30 rounded-full blur-[80px] sm:blur-[120px] z-10 mix-blend-screen animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-[10%] right-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-orange-600/30 rounded-full blur-[80px] sm:blur-[120px] z-10 mix-blend-screen animate-pulse pointer-events-none delay-1000"></div>
 
@@ -166,8 +166,12 @@ export default function Login() {
               <button type="button" onClick={() => { setRole('faculty'); setError(null); }} className={`flex-1 py-1 sm:py-1.5 text-[11px] sm:text-xs font-bold z-10 transition-colors ${role === 'faculty' ? 'text-white' : 'text-white/60'}`}>Faculty</button>
             </div>
 
-            <div className="w-full flex items-center justify-center mb-1 sm:mb-3">
-              <h1 className="text-lg sm:text-2xl font-black text-white/90 tracking-wide uppercase mt-0.5 sm:mt-1 border-b-2 sm:border-b-[3px] border-orange-500/70 pb-1 sm:pb-2 inline-block">
+            <div className="w-full flex flex-col items-center justify-center mb-1 sm:mb-3">
+              <div className="flex items-center gap-2 mb-2 px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/10 rounded-full backdrop-blur-md shadow-sm">
+                <GraduationCap className="w-4 h-4 text-blue-400" />
+                <span className="text-[11px] font-bold tracking-widest text-blue-200 uppercase">CampusSync Network</span>
+              </div>
+              <h1 className="text-xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-indigo-300 tracking-wider uppercase border-b-2 sm:border-b-[3px] border-blue-500/70 pb-1 sm:pb-2 inline-block">
                 {displayText}
               </h1>
             </div>
@@ -364,7 +368,7 @@ export default function Login() {
              <div className="relative flex py-0.5 sm:py-1 items-center">
                 <div className="flex-grow border-t border-white/10"></div>
                 <span className="flex-shrink-0 mx-3 sm:mx-4 text-white/30 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em]">
-                  {isLogin ? 'New to PeerSpace?' : 'Already have an account?'}
+                  {isLogin ? 'New to CampusSync?' : 'Already have an account?'}
                 </span>
                 <div className="flex-grow border-t border-white/10"></div>
              </div>

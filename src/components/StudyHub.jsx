@@ -173,7 +173,7 @@ export default function StudyHub({ currentUser, userProfile, role }) {
                <BookOpen className="w-3.5 h-3.5" /> Academic Resource Repository
             </span>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-               Raisoni Centralized Study Hub
+               CampusSync Centralized Study Hub
             </h1>
             <p className="text-xs sm:text-sm text-blue-200/90 font-medium leading-relaxed">
                Access verified professor handwritten notes, past 5-year question papers, model answer keys, and lab manuals organized by branch & semester.

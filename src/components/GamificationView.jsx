@@ -5,7 +5,7 @@ export default function GamificationView({ leaderboard = [], totalUserXP = 0, us
   const [timeframe, setTimeframe] = useState('alltime'); // 'weekly', 'monthly', 'alltime'
 
   const achievements = [
-     { id: 1, title: "First Syllabus Question", desc: "Asked your first academic doubt on PeerSpace", icon: "❓", xp: "+10 XP", unlocked: true },
+     { id: 1, title: "First Syllabus Question", desc: "Asked your first academic doubt on CampusSync", icon: "❓", xp: "+10 XP", unlocked: true },
      { id: 2, title: "Peer Contributor", desc: "Answered a peer's question successfully", icon: "🎯", xp: "+20 XP", unlocked: totalUserXP >= 25 },
      { id: 3, title: "7-Day Streak Warrior", desc: "Maintained active campus study streak for 7 days", icon: "🔥", xp: "+50 XP", unlocked: userStreak >= 7 },
      { id: 4, title: "Study Hub Supporter", desc: "Uploaded verified notes to Campus Study Hub", icon: "📚", xp: "+30 XP", unlocked: totalUserXP >= 100 },
@@ -58,7 +58,7 @@ export default function GamificationView({ leaderboard = [], totalUserXP = 0, us
           <div className="bg-white dark:bg-slate-800 rounded-3xl p-5 sm:p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
              <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
                 <h3 className="font-extrabold text-base text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                   <Trophy className="w-5 h-5 text-amber-500" /> Raisoni Campus Leaderboard
+                   <Trophy className="w-5 h-5 text-amber-500" /> CampusSync Leaderboard
                 </h3>
                 <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-900 p-1 rounded-xl text-[11px] font-bold">
                    <button onClick={() => setTimeframe('alltime')} className={`px-2.5 py-1 rounded-lg transition-all ${timeframe === 'alltime' ? 'bg-amber-500 text-slate-950 shadow-sm' : 'text-slate-500'}`}>All Time</button>

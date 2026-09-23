@@ -92,7 +92,7 @@ export default function PlacementHub({ userProfile }) {
                 <Briefcase className="w-3.5 h-3.5" /> Campus Placement & Career Portal
              </span>
              <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-                Raisoni T&P Placement Hub
+                CampusSync Placement Hub
              </h1>
              <p className="text-xs sm:text-sm text-cyan-200/90 font-medium leading-relaxed">
                 Track upcoming campus recruitment drives, company eligibility criteria, interview preparation roadmaps, and peer interview experiences.
