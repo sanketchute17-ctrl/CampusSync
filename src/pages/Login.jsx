@@ -137,7 +137,7 @@ export default function Login() {
       <img
         src="/assets/login-bg.jpg"
         alt="Campus Background"
-        className="fixed top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover object-center z-0 opacity-70"
+        className="fixed top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover object-center z-0 opacity-90"
       />
 
       {/* 2. Background Overlay */}
