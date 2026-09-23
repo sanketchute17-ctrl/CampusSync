@@ -185,12 +185,12 @@ export default function Login() {
           {!isLogin && (
             <div className="space-y-2.5 animate-in slide-in-from-top-4 duration-300">
               <div className="relative w-full">
-                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/80 pointer-events-none" />
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
                 <input 
                   type="text" 
                   value={fullName} onChange={(e) => setFullName(e.target.value)} required={!isLogin}
                   placeholder="Full Name (e.g. Rahul Sharma)" 
-                  className="w-full pl-10 pr-3.5 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 focus:ring-2 focus:ring-white/20 transition-all font-semibold text-xs shadow-md"
+                  className="w-full pl-10 pr-3.5 py-2 bg-white/95 backdrop-blur-md border border-white rounded-full text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all font-bold text-xs shadow-md"
                 />
               </div>
 
@@ -199,13 +199,13 @@ export default function Login() {
                   type="text" 
                   value={regNo} onChange={(e) => setRegNo(e.target.value)} required={!isLogin}
                   placeholder={role === 'faculty' ? "Employee ID" : "Reg No (EN21001)"} 
-                  className="w-full px-3.5 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 focus:ring-2 focus:ring-white/20 transition-all text-xs font-semibold shadow-md flex-1"
+                  className="w-full px-3.5 py-2 bg-white/95 backdrop-blur-md border border-white rounded-full text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all text-xs font-bold shadow-md flex-1"
                 />
                 {role === 'student' && (
                   <input 
                     type="date" 
                     value={dob} onChange={(e) => setDob(e.target.value)} required={!isLogin}
-                    className="w-full px-3 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white/90 focus:text-white focus:outline-none focus:border-white focus:bg-white/30 transition-all text-xs font-semibold [color-scheme:dark] shadow-md flex-1"
+                    className="w-full px-3 py-2 bg-white/95 backdrop-blur-md border border-white rounded-full text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all text-xs font-bold [color-scheme:light] shadow-md flex-1"
                   />
                 )}
               </div>
@@ -215,23 +215,23 @@ export default function Login() {
                   <div className="flex gap-2">
                     <select 
                       value={branch} onChange={(e) => setBranch(e.target.value)} required={!isLogin}
-                      className="w-full px-3 py-2 bg-slate-900/80 backdrop-blur-xl border border-white/30 rounded-full text-white focus:outline-none focus:border-white transition-all text-xs font-semibold shadow-md flex-[2]">
-                      <option value="" disabled>Select Branch</option>
-                      <option value="CSE">Computer Science (CSE)</option>
-                      <option value="IT">Information Tech (IT)</option>
-                      <option value="MECH">Mechanical (MECH)</option>
-                      <option value="CIVIL">Civil Engg (CIVIL)</option>
-                      <option value="EXTC">Electronics (EXTC)</option>
-                      <option value="AI">Artificial Intelligence (AI)</option>
-                      <option value="AIML">AI & Machine Learning (AIML)</option>
-                      <option value="DS">Data Science (DS)</option>
+                      className="w-full px-3 py-2 bg-white/95 backdrop-blur-md border border-white rounded-full text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all text-xs font-bold shadow-md flex-[2]">
+                      <option value="" disabled className="text-slate-400">Select Branch</option>
+                      <option value="CSE" className="text-slate-900">Computer Science (CSE)</option>
+                      <option value="IT" className="text-slate-900">Information Tech (IT)</option>
+                      <option value="MECH" className="text-slate-900">Mechanical (MECH)</option>
+                      <option value="CIVIL" className="text-slate-900">Civil Engg (CIVIL)</option>
+                      <option value="EXTC" className="text-slate-900">Electronics (EXTC)</option>
+                      <option value="AI" className="text-slate-900">Artificial Intelligence (AI)</option>
+                      <option value="AIML" className="text-slate-900">AI & Machine Learning (AIML)</option>
+                      <option value="DS" className="text-slate-900">Data Science (DS)</option>
                     </select>
 
                     <select 
                       value={semester} onChange={(e) => setSemester(e.target.value)} required={!isLogin}
-                      className="w-full px-3 py-2 bg-slate-900/80 backdrop-blur-xl border border-white/30 rounded-full text-white focus:outline-none focus:border-white transition-all text-xs font-semibold shadow-md flex-[1]">
-                      <option value="" disabled>Sem</option>
-                      {[1, 2, 3, 4, 5, 6, 7, 8].map(s => <option key={s} value={s}>{s}</option>)}
+                      className="w-full px-3 py-2 bg-white/95 backdrop-blur-md border border-white rounded-full text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all text-xs font-bold shadow-md flex-[1]">
+                      <option value="" disabled className="text-slate-400">Sem</option>
+                      {[1, 2, 3, 4, 5, 6, 7, 8].map(s => <option key={s} value={s} className="text-slate-900">{s}</option>)}
                     </select>
                   </div>
 
@@ -240,29 +240,29 @@ export default function Login() {
                       type="number" 
                       value={startYear} onChange={(e) => setStartYear(e.target.value)} required={!isLogin}
                       placeholder="Start Year" min="2010" max="2030"
-                      className="w-full px-3.5 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 transition-all text-xs font-semibold shadow-md flex-1"
+                      className="w-full px-3.5 py-2 bg-white/95 backdrop-blur-md border border-white rounded-full text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all text-xs font-bold shadow-md flex-1"
                     />
                     <input 
                       type="number" 
                       value={endYear} onChange={(e) => setEndYear(e.target.value)} required={!isLogin}
                       placeholder="End Year" min="2014" max="2034"
-                      className="w-full px-3.5 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 transition-all text-xs font-semibold shadow-md flex-1"
+                      className="w-full px-3.5 py-2 bg-white/95 backdrop-blur-md border border-white rounded-full text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all text-xs font-bold shadow-md flex-1"
                     />
                   </div>
                 </>
               ) : (
                 <select 
                   value={facultyDept} onChange={(e) => setFacultyDept(e.target.value)} required={!isLogin}
-                  className="w-full px-3.5 py-2 bg-slate-900/80 backdrop-blur-xl border border-white/30 rounded-full text-white focus:outline-none focus:border-white transition-all text-xs font-semibold shadow-md">
-                  <option value="" disabled>Select Department</option>
-                  <option value="CSE">Computer Science</option>
-                  <option value="IT">Information Technology</option>
-                  <option value="MECH">Mechanical Engineering</option>
-                  <option value="CIVIL">Civil Engineering</option>
-                  <option value="EXTC">Electronics & Telecom</option>
-                  <option value="AI">Artificial Intelligence</option>
-                  <option value="AIML">AI & Machine Learning</option>
-                  <option value="DS">Data Science</option>
+                  className="w-full px-3.5 py-2 bg-white/95 backdrop-blur-md border border-white rounded-full text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all text-xs font-bold shadow-md">
+                  <option value="" disabled className="text-slate-400">Select Department</option>
+                  <option value="CSE" className="text-slate-900">Computer Science</option>
+                  <option value="IT" className="text-slate-900">Information Technology</option>
+                  <option value="MECH" className="text-slate-900">Mechanical Engineering</option>
+                  <option value="CIVIL" className="text-slate-900">Civil Engineering</option>
+                  <option value="EXTC" className="text-slate-900">Electronics & Telecom</option>
+                  <option value="AI" className="text-slate-900">Artificial Intelligence</option>
+                  <option value="AIML" className="text-slate-900">AI & Machine Learning</option>
+                  <option value="DS" className="text-slate-900">Data Science</option>
                 </select>
               )}
             </div>
@@ -270,28 +270,28 @@ export default function Login() {
 
           {/* Email Pill Input */}
           <div className="relative w-full">
-            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/80 pointer-events-none" />
+            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
             <input 
               type="text" 
               value={emailOrReg} onChange={(e) => setEmailOrReg(e.target.value)} required
               placeholder="Enter your registered email" 
-              className="w-full pl-10 pr-3.5 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 focus:ring-2 focus:ring-white/20 transition-all text-xs font-semibold shadow-md"
+              className="w-full pl-10 pr-3.5 py-2 bg-white/95 backdrop-blur-md border border-white rounded-full text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all text-xs font-bold shadow-md"
             />
           </div>
 
           {/* Password Pill Input */}
           <div className="relative w-full">
-            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/80 pointer-events-none" />
+            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
             <input 
               type={showPassword ? "text" : "password"} 
               value={password} onChange={(e) => setPassword(e.target.value)} required
               placeholder="Enter your password" 
-              className="w-full pl-10 pr-10 py-2 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full text-white placeholder:text-white/75 focus:outline-none focus:border-white focus:bg-white/30 focus:ring-2 focus:ring-white/20 transition-all text-xs font-semibold shadow-md"
+              className="w-full pl-10 pr-10 py-2 bg-white/95 backdrop-blur-md border border-white rounded-full text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all text-xs font-bold shadow-md"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/75 hover:text-white transition-colors"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-800 transition-colors"
             >
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
             </button>
