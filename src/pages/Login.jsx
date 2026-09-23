@@ -405,6 +405,8 @@ export default function Login() {
           </button>
         </div>
 
+      </div>
+
       {/* Bonus: Fixed Mute/Play Button */}
       <button 
         onClick={() => setIsVideoMuted(!isVideoMuted)}
