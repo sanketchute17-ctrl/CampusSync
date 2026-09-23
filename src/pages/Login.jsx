@@ -133,15 +133,20 @@ export default function Login() {
   return (
     <div className="relative min-h-screen w-full overflow-y-auto sm:overflow-hidden bg-black flex flex-col items-center justify-center font-sans px-3 sm:px-4 py-6 select-none">
       
-      {/* 1. Background Image */}
-      <img
-        src="/assets/login-bg.jpg"
-        alt="Campus Background"
-        className="fixed top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover object-center z-0 opacity-90"
-      />
+      {/* 1. Background Video (Full Quality bg.mp4) */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="fixed top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover object-center z-0 opacity-100"
+      >
+        <source src="/assets/bg.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      {/* 2. Background Overlay */}
-      <div className="absolute inset-0 bg-black/30 z-10"></div>
+      {/* 2. Subtle Overlay */}
+      <div className="absolute inset-0 bg-black/25 z-10 pointer-events-none"></div>
 
       {/* 3. Floating Light Blobs */}
       <div className="absolute top-[10%] left-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-purple-700/20 rounded-full blur-[100px] z-10 pointer-events-none"></div>
