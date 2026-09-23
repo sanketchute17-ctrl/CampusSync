@@ -25,8 +25,19 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const { currentUser, userProfile, isAnonymous: contextIsAnonymous, updateProfile, logout } = useAuth();
   
-  // Check if user logged in anonymously from context or login page state
   const isUserAnonymous = contextIsAnonymous || location.state?.isAnonymous || false;
+
+  const [showDemoModal, setShowDemoModal] = useState(false);
+  const isDemoUser = !currentUser || contextIsAnonymous || isUserAnonymous || location.state?.isDemoMode;
+
+  const requireLoginGuard = (actionCallback) => {
+    if (isDemoUser) {
+      setShowDemoModal(true);
+      return false;
+    }
+    if (actionCallback) actionCallback();
+    return true;
+  };
 
   const [activeView, setActiveView] = useState('doubts'); // 'doubts', 'mentorship', 'lostfound'
   const [doubts, setDoubts] = useState([]);
@@ -1377,7 +1388,7 @@ export default function Dashboard() {
               </div>
 
               <div className="bg-white border border-blue-100 p-4 rounded-2xl mb-6 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.05)] flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3 flex-1 cursor-pointer" onClick={() => { setIsModalOpen(true); if(selectedTopicFilter) setNewTag(selectedTopicFilter); }}>
+                <div className="flex items-center gap-3 flex-1 cursor-pointer" onClick={() => requireLoginGuard(() => { setIsModalOpen(true); if(selectedTopicFilter) setNewTag(selectedTopicFilter); })}>
                   <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center border border-blue-100">
                      {isUserAnonymous ? <Ghost className="w-5 h-5 text-blue-800" /> : <User className="w-5 h-5 text-blue-800" />}
                   </div>
@@ -1386,7 +1397,7 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <button 
-                  onClick={() => { setIsModalOpen(true); if(selectedTopicFilter) setNewTag(selectedTopicFilter); }}
+                  onClick={() => requireLoginGuard(() => { setIsModalOpen(true); if(selectedTopicFilter) setNewTag(selectedTopicFilter); })}
                   className="hidden sm:flex items-center gap-2 bg-[#0f172a] hover:bg-blue-900 text-white px-5 py-2.5 rounded-full font-bold shadow-md hover:shadow-lg transition-all"
                 >
                   <PlusCircle className="w-5 h-5" />
@@ -1405,7 +1416,7 @@ export default function Dashboard() {
 
               <div className="space-y-0">
                 {filteredDoubts.map(doubt => (
-                  <DoubtCard key={doubt.id} doubt={doubt} currentUser={currentUser} userProfile={userProfile} isUserAnonymous={isUserAnonymous} />
+                  <DoubtCard key={doubt.id} doubt={doubt} currentUser={currentUser} userProfile={userProfile} isUserAnonymous={isUserAnonymous} onRequireLogin={() => setShowDemoModal(true)} />
                 ))}
                 {filteredDoubts.length === 0 && doubts.length > 0 && (
                    <div className="text-center py-10 bg-white rounded-2xl border border-blue-100 mt-4 shadow-sm">
@@ -2224,6 +2235,39 @@ export default function Dashboard() {
 
       {/* Global AI Assistant & Smart Translator Tool */}
       <AIAssistant />
+
+      {/* Demo Mode Action Guard Modal */}
+      {showDemoModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in">
+          <div className="bg-slate-900 border border-slate-800 text-white w-full max-w-md rounded-3xl p-6 sm:p-8 shadow-2xl text-center space-y-5 zoom-in duration-200">
+            <div className="w-16 h-16 bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-emerald-950/50">
+              <Lock className="w-8 h-8 text-slate-950" />
+            </div>
+            
+            <div className="space-y-2">
+              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">Login Required</h3>
+              <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
+                You are currently browsing in <strong className="text-emerald-400">Demo Mode</strong>. Please log in or create an account to ask doubts, post answers, upvote, upload notes, and connect with faculty.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-2.5 pt-2">
+              <button
+                onClick={() => navigate('/')}
+                className="w-full py-3.5 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-500 hover:from-emerald-500 hover:to-teal-400 text-white font-extrabold text-sm rounded-full shadow-lg shadow-emerald-950/40 transition-all active:scale-95 flex items-center justify-center gap-2"
+              >
+                <LogIn className="w-4 h-4" /> Go to Login / Register ➔
+              </button>
+              <button
+                onClick={() => setShowDemoModal(false)}
+                className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-full transition-colors"
+              >
+                Continue Browsing
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

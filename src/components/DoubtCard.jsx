@@ -52,7 +52,7 @@ export function formatTimeAgo(timestamp) {
   return `${diffInMonths}mo ago`;
 }
 
-export default function DoubtCard({ doubt, currentUser, userProfile, isUserAnonymous }) {
+export default function DoubtCard({ doubt, currentUser, userProfile, isUserAnonymous, onRequireLogin }) {
   const currentUserId = currentUser ? currentUser.uid : "anonymous_session";
   const initialUpvoted = doubt.upvoters ? doubt.upvoters.includes(currentUserId) : false;
   
@@ -69,6 +69,10 @@ export default function DoubtCard({ doubt, currentUser, userProfile, isUserAnony
   });
 
   const handleBookmark = async () => {
+     if (!currentUser || currentUser.uid === "guest_user" || isUserAnonymous) {
+       if (onRequireLogin) onRequireLogin();
+       return;
+     }
      const willSave = !isSaved;
      setIsSaved(willSave);
 
@@ -187,6 +191,10 @@ export default function DoubtCard({ doubt, currentUser, userProfile, isUserAnony
 
   const submitAnswer = async (e) => {
     e.preventDefault();
+    if (!currentUser || currentUser.uid === "guest_user" || isUserAnonymous) {
+      if (onRequireLogin) onRequireLogin();
+      return;
+    }
     if (!newAnswer.trim() && !selectedFile) return;
     if (!doubt.id) return;
 
