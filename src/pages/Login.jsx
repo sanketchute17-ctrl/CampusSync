@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { User, LogIn, UserPlus, AlertCircle, Eye, EyeOff, Check, Mail, Lock, PlayCircle, Loader2, Volume2, VolumeX } from 'lucide-react';
+import { User, LogIn, UserPlus, AlertCircle, Eye, EyeOff, Check, Mail, Lock, PlayCircle, Loader2, Volume2, VolumeX, Shield } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../lib/firebase';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
@@ -159,7 +159,7 @@ export default function Login() {
 
       {/* 3. Floating Light Blobs */}
       <div className="absolute top-[10%] left-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-purple-700/20 rounded-full blur-[100px] z-10 pointer-events-none"></div>
-      <div className="absolute bottom-[10%] right-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-emerald-600/20 rounded-full blur-[100px] z-10 pointer-events-none"></div>
+      <div className="absolute bottom-[10%] right-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-sky-500/20 rounded-full blur-[100px] z-10 pointer-events-none"></div>
 
       {/* 4. Floating Form Container (No heavy outer box) */}
       <div className="relative z-20 w-full max-w-[340px] sm:max-w-md my-auto flex flex-col max-h-[95vh] overflow-y-auto [&::-webkit-scrollbar]:hidden px-2 sm:px-4">
@@ -167,14 +167,14 @@ export default function Login() {
         {/* Role Switcher & Branding Header */}
         <div className="flex flex-col items-center mb-4 sm:mb-6 text-center">
           <div className="flex bg-white/20 backdrop-blur-md p-1 rounded-full mb-3 w-48 sm:w-56 justify-between relative border border-white/30 shadow-md">
-            <div className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-gradient-to-r from-emerald-600 to-teal-500 rounded-full transition-all duration-300 shadow-sm ${role === 'faculty' ? 'translate-x-[100%]' : 'translate-x-0'}`}></div>
+            <div className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-gradient-to-r from-sky-400 to-blue-500 rounded-full transition-all duration-300 shadow-sm ${role === 'faculty' ? 'translate-x-[100%]' : 'translate-x-0'}`}></div>
             <button type="button" onClick={() => { setRole('student'); setError(null); }} className={`flex-1 py-1.5 text-xs font-extrabold z-10 transition-colors ${role === 'student' ? 'text-white' : 'text-white/70'}`}>Student</button>
             <button type="button" onClick={() => { setRole('faculty'); setError(null); }} className={`flex-1 py-1.5 text-xs font-extrabold z-10 transition-colors ${role === 'faculty' ? 'text-white' : 'text-white/70'}`}>Faculty</button>
           </div>
 
           <div className="w-full flex items-center justify-center mb-1">
             <img src="/app-logo.png" alt="CampusSync Logo" className="h-10 sm:h-12 w-auto object-contain mr-2.5 drop-shadow-md" />
-            <h1 className="text-xl sm:text-3xl font-black text-white tracking-wider uppercase border-b-2 border-emerald-400/80 pb-1 inline-block drop-shadow-md">
+            <h1 className="text-xl sm:text-3xl font-black text-white tracking-wider uppercase border-b-2 border-sky-400/80 pb-1 inline-block drop-shadow-md">
               {displayText}
             </h1>
           </div>
@@ -310,7 +310,7 @@ export default function Login() {
               <button
                 type="button"
                 onClick={handleForgotPassword}
-                className="px-4 py-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-emerald-300 hover:text-emerald-200 font-extrabold text-[11px] sm:text-xs rounded-full transition-all shadow-sm"
+                className="px-4 py-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-sky-300 hover:text-sky-200 font-extrabold text-[11px] sm:text-xs rounded-full transition-all shadow-sm"
               >
                 Forgot Password?
               </button>
@@ -322,21 +322,21 @@ export default function Login() {
             <div 
               className="flex items-center justify-between bg-white/95 backdrop-blur-md border border-white rounded-2xl p-3 sm:px-5 sm:py-3 cursor-pointer shadow-md w-full"
               onClick={() => {
-                if (captchaVerified || captchaLoading) return;
+                if (captchaVerified) return;
                 setCaptchaLoading(true);
                 setTimeout(() => {
                   setCaptchaLoading(false);
                   setCaptchaVerified(true);
                   setError(null);
-                }, 1000);
+                }, 300);
               }}
             >
               <div className="flex items-center gap-3">
                 <div className="flex items-center justify-center w-6 h-6 rounded-md border-2 bg-white flex-shrink-0 transition-all" style={{ borderColor: captchaVerified ? 'transparent' : '#94a3b8' }}>
                    {captchaLoading ? (
-                      <span className="animate-spin h-4 w-4 border-2 border-emerald-600 border-t-transparent rounded-full"></span>
+                      <span className="animate-spin h-4 w-4 border-2 border-sky-500 border-t-transparent rounded-full"></span>
                    ) : captchaVerified ? (
-                      <Check className="w-5 h-5 text-emerald-600 font-bold" strokeWidth={4} />
+                      <Check className="w-5 h-5 text-sky-500 font-bold" strokeWidth={4} />
                    ) : null}
                 </div>
                 <span className="text-slate-800 font-extrabold text-xs sm:text-sm select-none tracking-wide">
@@ -344,17 +344,17 @@ export default function Login() {
                 </span>
               </div>
               <div className="flex items-center gap-1.5 opacity-80">
-                <Loader2 className="w-4 h-4 text-emerald-600 animate-spin" />
+                <Shield className="w-4 h-4 text-sky-500" />
                 <span className="text-[10px] font-extrabold text-slate-600">reCAPTCHA</span>
               </div>
             </div>
           </div>
 
-          {/* Primary Action Button (Emerald Green Pill) */}
+          {/* Primary Action Button (Light Blue & Light White Pill) */}
           <button 
             type="submit"
             disabled={isLoading}
-            className="mt-2 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-500 hover:from-emerald-500 hover:to-teal-400 text-white py-3.5 sm:py-4 px-6 rounded-full font-extrabold text-sm sm:text-base tracking-wider uppercase shadow-xl shadow-emerald-950/40 hover:shadow-emerald-600/50 transition-all active:scale-98 disabled:opacity-50"
+            className="mt-2 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-400 hover:from-sky-300 hover:to-blue-400 text-white py-3.5 sm:py-4 px-6 rounded-full font-extrabold text-sm sm:text-base tracking-wider uppercase shadow-xl shadow-blue-950/40 hover:shadow-sky-400/50 border border-white/30 transition-all active:scale-98 disabled:opacity-50"
           >
             {isLoading ? (
                <span className="animate-spin h-5 w-5 border-2 border-white/40 border-t-white rounded-full"></span>
@@ -386,7 +386,7 @@ export default function Login() {
             }}
             className="flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 text-white py-3 px-4 rounded-full font-extrabold text-xs sm:text-sm transition-all shadow-md active:scale-95"
           >
-            <PlayCircle className="w-4 h-4 text-emerald-300" /> Demo Mode
+            <PlayCircle className="w-4 h-4 text-sky-300" /> Demo Mode
           </button>
 
           <button 
@@ -398,7 +398,7 @@ export default function Login() {
             className="flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 text-white py-3 px-4 rounded-full font-extrabold text-xs sm:text-sm transition-all shadow-md active:scale-95"
           >
             {isLogin ? (
-              <><UserPlus className="w-4 h-4 text-teal-300" /> Register</>
+              <><UserPlus className="w-4 h-4 text-sky-300" /> Register</>
             ) : (
               <><LogIn className="w-4 h-4 text-blue-300" /> Sign In</>
             )}
