@@ -677,13 +677,12 @@ export default function Dashboard() {
       {/* Navbar */}
       <nav className="sticky top-0 z-40 bg-[#0f172a] border-b border-blue-900 px-3 py-2 sm:px-6 lg:px-8 shadow-md">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2.5 sm:gap-3 cursor-pointer shrink-0" onClick={() => navigate('/')}>
+          <div className="flex items-center gap-2 sm:gap-3 cursor-pointer shrink-0" onClick={() => navigate('/')}>
             <img src="/app-logo.png" alt="CampusSync Logo" className="h-9 sm:h-11 w-auto object-contain rounded-xl drop-shadow-md" />
             <div className="flex flex-col justify-center">
               <span className="font-extrabold text-base sm:text-lg text-white tracking-tight leading-none">
                 Campus<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Sync</span>
               </span>
-              <span className="text-[10px] text-blue-300 font-medium tracking-wider uppercase mt-0.5">Academic Network</span>
             </div>
           </div>
 
@@ -709,19 +708,15 @@ export default function Dashboard() {
           {/* Right Actions */}
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             
-            {/* Single Unified 3-Mode Theme Toggle Button */}
+            {/* Single Compact Emoji 3-Mode Theme Toggle Button */}
             <button 
                onClick={cycleThemeMode}
-               className={`px-3 py-1.5 rounded-full text-xs font-extrabold transition-all flex items-center gap-1.5 shadow-md border active:scale-95 ${
-                  themeMode === 'light' ? 'bg-amber-400 text-slate-950 border-amber-300 ring-2 ring-amber-300/40' :
-                  themeMode === 'eyecare' ? 'bg-amber-200 text-amber-950 border-amber-300 ring-2 ring-amber-300/40' :
-                  'bg-indigo-600 text-white border-indigo-400 ring-2 ring-indigo-400/40'
-               }`}
-               title="Click to cycle theme: Day -> Eye Care -> Night"
+               className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-base sm:text-lg flex items-center justify-center transition-all active:scale-90 shadow-sm shrink-0"
+               title={`Theme: ${themeMode === 'light' ? 'Day (☀️)' : themeMode === 'eyecare' ? 'Eye Care (👁️)' : 'Night (🌙)'}. Click to switch.`}
             >
-               {themeMode === 'light' && <><Sun className="w-3.5 h-3.5" /> <span>Day</span></>}
-               {themeMode === 'eyecare' && <><Eye className="w-3.5 h-3.5" /> <span>Eye Care</span></>}
-               {themeMode === 'dark' && <><Moon className="w-3.5 h-3.5" /> <span>Night</span></>}
+               {themeMode === 'light' && '☀️'}
+               {themeMode === 'eyecare' && '👁️'}
+               {themeMode === 'dark' && '🌙'}
             </button>
 
             <div className="relative">

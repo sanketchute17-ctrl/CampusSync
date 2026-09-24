@@ -245,7 +245,7 @@ export default function AIAssistant() {
       <button
         id="ai-assistant-toggle"
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all outline-none animate-bounce hover:animate-none border-4 border-white dark:border-slate-800"
+        className="fixed bottom-24 md:bottom-6 right-4 md:right-6 z-50 w-13 h-13 md:w-16 md:h-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all outline-none animate-bounce hover:animate-none border-4 border-white dark:border-slate-800"
       >
         {isOpen ? <X className="text-white w-6 h-6 md:w-7 md:h-7" /> : <Sparkles className="text-white w-6 h-6 md:w-7 md:h-7" />}
       </button>
