@@ -139,7 +139,7 @@ export default function Login() {
         loop
         muted
         playsInline
-        className="fixed top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover object-center z-0 opacity-80"
+        className="fixed top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover object-center z-0 opacity-100"
       >
         <source src="/assets/bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
