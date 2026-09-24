@@ -171,10 +171,10 @@ export default function Login() {
           </p>
 
           {/* 3. Student & Faculty portal toggle */}
-          <div className="flex bg-transparent p-1 rounded-full w-48 sm:w-56 justify-between relative border-2 border-white shadow-md shadow-black/40">
+          <div className="flex bg-black/40 backdrop-blur-md p-1 rounded-full w-48 sm:w-56 justify-between relative border-2 border-white shadow-md shadow-black/40">
             <div className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-blue-600 rounded-full transition-all duration-300 shadow-sm ${role === 'faculty' ? 'translate-x-[100%]' : 'translate-x-0'}`}></div>
-            <button type="button" onClick={() => { setRole('student'); setError(null); }} className={`flex-1 py-1 text-xs z-10 transition-colors ${role === 'student' ? 'text-white font-black' : 'text-white/80 font-bold hover:text-white'}`}>Student</button>
-            <button type="button" onClick={() => { setRole('faculty'); setError(null); }} className={`flex-1 py-1 text-xs z-10 transition-colors ${role === 'faculty' ? 'text-white font-black' : 'text-white/80 font-bold hover:text-white'}`}>Faculty</button>
+            <button type="button" onClick={() => { setRole('student'); setError(null); }} className={`flex-1 py-1 text-xs z-10 transition-colors ${role === 'student' ? 'text-white font-black' : 'text-slate-200 font-bold hover:text-white'}`}>Student</button>
+            <button type="button" onClick={() => { setRole('faculty'); setError(null); }} className={`flex-1 py-1 text-xs z-10 transition-colors ${role === 'faculty' ? 'text-white font-black' : 'text-slate-200 font-bold hover:text-white'}`}>Faculty</button>
           </div>
         </div>
 
@@ -190,12 +190,12 @@ export default function Login() {
           {!isLogin && (
             <div className="space-y-2.5 animate-in slide-in-from-top-4 duration-300">
               <div className="relative w-full">
-                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-400 pointer-events-none" />
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-400 pointer-events-none drop-shadow" />
                 <input 
                   type="text" 
                   value={fullName} onChange={(e) => setFullName(e.target.value)} required={!isLogin}
                   placeholder="Full Name (e.g. Rahul Sharma)" 
-                  className="w-full pl-10 pr-3.5 py-2.5 bg-transparent border-2 border-white rounded-full text-white placeholder:text-white/80 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all font-bold text-xs shadow-md shadow-black/40"
+                  className="w-full pl-10 pr-3.5 py-2.5 bg-black/40 backdrop-blur-md border-2 border-white rounded-full text-white placeholder:text-slate-200 placeholder:font-extrabold focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all font-extrabold text-xs shadow-md shadow-black/50"
                 />
               </div>
 
@@ -204,13 +204,13 @@ export default function Login() {
                   type="text" 
                   value={regNo} onChange={(e) => setRegNo(e.target.value)} required={!isLogin}
                   placeholder={role === 'faculty' ? "Employee ID" : "Reg No (EN21001)"} 
-                  className="w-full px-3.5 py-2.5 bg-transparent border-2 border-white rounded-full text-white placeholder:text-white/80 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-bold shadow-md shadow-black/40 flex-1"
+                  className="w-full px-3.5 py-2.5 bg-black/40 backdrop-blur-md border-2 border-white rounded-full text-white placeholder:text-slate-200 placeholder:font-extrabold focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-extrabold shadow-md shadow-black/50 flex-1"
                 />
                 {role === 'student' && (
                   <input 
                     type="date" 
                     value={dob} onChange={(e) => setDob(e.target.value)} required={!isLogin}
-                    className="w-full px-3 py-2.5 bg-transparent border-2 border-white rounded-full text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-bold [color-scheme:dark] shadow-md shadow-black/40 flex-1"
+                    className="w-full px-3 py-2.5 bg-black/40 backdrop-blur-md border-2 border-white rounded-full text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-extrabold [color-scheme:dark] shadow-md shadow-black/50 flex-1"
                   />
                 )}
               </div>
@@ -220,7 +220,7 @@ export default function Login() {
                   <div className="flex gap-2">
                     <select 
                       value={branch} onChange={(e) => setBranch(e.target.value)} required={!isLogin}
-                      className="w-full px-3 py-2.5 bg-transparent border-2 border-white rounded-full text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-bold shadow-md shadow-black/40 flex-[2]">
+                      className="w-full px-3 py-2.5 bg-black/40 backdrop-blur-md border-2 border-white rounded-full text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-extrabold shadow-md shadow-black/50 flex-[2]">
                       <option value="" disabled className="text-slate-400 bg-slate-900">Select Branch</option>
                       <option value="CSE" className="text-white bg-slate-900">Computer Science (CSE)</option>
                       <option value="IT" className="text-white bg-slate-900">Information Tech (IT)</option>
@@ -234,7 +234,7 @@ export default function Login() {
 
                     <select 
                       value={semester} onChange={(e) => setSemester(e.target.value)} required={!isLogin}
-                      className="w-full px-3 py-2.5 bg-transparent border-2 border-white rounded-full text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-bold shadow-md shadow-black/40 flex-[1]">
+                      className="w-full px-3 py-2.5 bg-black/40 backdrop-blur-md border-2 border-white rounded-full text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-extrabold shadow-md shadow-black/50 flex-[1]">
                       <option value="" disabled className="text-slate-400 bg-slate-900">Sem</option>
                       {[1, 2, 3, 4, 5, 6, 7, 8].map(s => <option key={s} value={s} className="text-white bg-slate-900">{s}</option>)}
                     </select>
@@ -245,20 +245,20 @@ export default function Login() {
                       type="number" 
                       value={startYear} onChange={(e) => setStartYear(e.target.value)} required={!isLogin}
                       placeholder="Start Year" min="2010" max="2030"
-                      className="w-full px-3.5 py-2.5 bg-transparent border-2 border-white rounded-full text-white placeholder:text-white/80 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-bold shadow-md shadow-black/40 flex-1"
+                      className="w-full px-3.5 py-2.5 bg-black/40 backdrop-blur-md border-2 border-white rounded-full text-white placeholder:text-slate-200 placeholder:font-extrabold focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-extrabold shadow-md shadow-black/50 flex-1"
                     />
                     <input 
                       type="number" 
                       value={endYear} onChange={(e) => setEndYear(e.target.value)} required={!isLogin}
                       placeholder="End Year" min="2014" max="2034"
-                      className="w-full px-3.5 py-2.5 bg-transparent border-2 border-white rounded-full text-white placeholder:text-white/80 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-bold shadow-md shadow-black/40 flex-1"
+                      className="w-full px-3.5 py-2.5 bg-black/40 backdrop-blur-md border-2 border-white rounded-full text-white placeholder:text-slate-200 placeholder:font-extrabold focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-extrabold shadow-md shadow-black/50 flex-1"
                     />
                   </div>
                 </>
               ) : (
                 <select 
                   value={facultyDept} onChange={(e) => setFacultyDept(e.target.value)} required={!isLogin}
-                  className="w-full px-3.5 py-2.5 bg-transparent border-2 border-white rounded-full text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-bold shadow-md shadow-black/40">
+                  className="w-full px-3.5 py-2.5 bg-black/40 backdrop-blur-md border-2 border-white rounded-full text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-extrabold shadow-md shadow-black/50">
                   <option value="" disabled className="text-slate-400 bg-slate-900">Select Department</option>
                   <option value="CSE" className="text-white bg-slate-900">Computer Science</option>
                   <option value="IT" className="text-white bg-slate-900">Information Technology</option>
@@ -275,28 +275,28 @@ export default function Login() {
 
           {/* Email Pill Input */}
           <div className="relative w-full">
-            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-400 pointer-events-none" />
+            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-400 pointer-events-none drop-shadow" />
             <input 
               type="text" 
               value={emailOrReg} onChange={(e) => setEmailOrReg(e.target.value)} required
               placeholder="Enter your registered email" 
-              className="w-full pl-10 pr-3.5 py-2.5 bg-transparent border-2 border-white rounded-full text-white placeholder:text-white/80 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-bold shadow-md shadow-black/40"
+              className="w-full pl-10 pr-3.5 py-2.5 bg-black/40 backdrop-blur-md border-2 border-white rounded-full text-white placeholder:text-slate-200 placeholder:font-extrabold focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-extrabold shadow-md shadow-black/50"
             />
           </div>
 
           {/* Password Pill Input */}
           <div className="relative w-full">
-            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-400 pointer-events-none" />
+            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-400 pointer-events-none drop-shadow" />
             <input 
               type={showPassword ? "text" : "password"} 
               value={password} onChange={(e) => setPassword(e.target.value)} required
               placeholder="Enter your password" 
-              className="w-full pl-10 pr-10 py-2.5 bg-transparent border-2 border-white rounded-full text-white placeholder:text-white/80 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-bold shadow-md shadow-black/40"
+              className="w-full pl-10 pr-10 py-2.5 bg-black/40 backdrop-blur-md border-2 border-white rounded-full text-white placeholder:text-slate-200 placeholder:font-extrabold focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 transition-all text-xs font-extrabold shadow-md shadow-black/50"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-200 hover:text-white transition-colors"
             >
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
             </button>
@@ -318,7 +318,7 @@ export default function Login() {
           {/* Captcha Section */}
           <div className="w-full mt-0.5">
             <div 
-              className="flex items-center justify-between bg-transparent border-2 border-white rounded-2xl p-2.5 sm:px-4 cursor-pointer shadow-md shadow-black/40 w-full hover:border-white transition-all"
+              className="flex items-center justify-between bg-black/40 backdrop-blur-md border-2 border-white rounded-2xl p-2.5 sm:px-4 cursor-pointer shadow-md shadow-black/50 w-full hover:border-white transition-all"
               onClick={() => {
                 if (captchaVerified) return;
                 setCaptchaLoading(true);
@@ -337,13 +337,13 @@ export default function Login() {
                       <Check className="w-4 h-4 text-blue-400 font-bold" strokeWidth={4} />
                    ) : null}
                 </div>
-                <span className="text-white font-extrabold text-xs select-none tracking-wide">
+                <span className="text-white font-extrabold text-xs select-none tracking-wide drop-shadow">
                    I'm not a robot
                 </span>
               </div>
               <div className="flex items-center gap-1 opacity-90">
-                <Shield className="w-3.5 h-3.5 text-blue-400" />
-                <span className="text-[10px] font-extrabold text-white">reCAPTCHA</span>
+                <Shield className="w-3.5 h-3.5 text-blue-400 drop-shadow" />
+                <span className="text-[10px] font-extrabold text-white drop-shadow">reCAPTCHA</span>
               </div>
             </div>
           </div>
@@ -368,7 +368,7 @@ export default function Login() {
         {/* OR Divider */}
         <div className="relative flex py-2 items-center my-1">
            <div className="flex-grow border-t border-white/40"></div>
-           <span className="flex-shrink-0 mx-2.5 px-3 py-0.5 bg-transparent rounded-full text-white text-[10px] font-black uppercase tracking-widest border border-white/30 shadow-sm">
+           <span className="flex-shrink-0 mx-2.5 px-3 py-0.5 bg-black/40 backdrop-blur-md rounded-full text-white text-[10px] font-black uppercase tracking-widest border border-white/30 shadow-sm">
              OR
            </span>
            <div className="flex-grow border-t border-white/40"></div>
@@ -382,9 +382,9 @@ export default function Login() {
               loginAsGuest('student');
               navigate('/dashboard', { state: { isDemoMode: true } });
             }}
-            className="flex items-center justify-center gap-1.5 bg-transparent border-2 border-white hover:bg-white/10 text-white py-2.5 px-3 rounded-full font-extrabold text-xs transition-all shadow-md shadow-black/40 active:scale-95"
+            className="flex items-center justify-center gap-1.5 bg-black/40 backdrop-blur-md border-2 border-white hover:bg-white/10 text-white py-2.5 px-3 rounded-full font-extrabold text-xs transition-all shadow-md shadow-black/50 active:scale-95"
           >
-            <PlayCircle className="w-4 h-4 text-blue-400" /> Demo Mode
+            <PlayCircle className="w-4 h-4 text-blue-400 drop-shadow" /> Demo Mode
           </button>
 
           <button 
@@ -393,12 +393,12 @@ export default function Login() {
                setIsLogin(!isLogin);
                setError(null);
             }} 
-            className="flex items-center justify-center gap-1.5 bg-transparent border-2 border-white hover:bg-white/10 text-white py-2.5 px-3 rounded-full font-extrabold text-xs transition-all shadow-md shadow-black/40 active:scale-95"
+            className="flex items-center justify-center gap-1.5 bg-black/40 backdrop-blur-md border-2 border-white hover:bg-white/10 text-white py-2.5 px-3 rounded-full font-extrabold text-xs transition-all shadow-md shadow-black/50 active:scale-95"
           >
             {isLogin ? (
-              <><UserPlus className="w-4 h-4 text-blue-400" /> Register</>
+              <><UserPlus className="w-4 h-4 text-blue-400 drop-shadow" /> Register</>
             ) : (
-              <><LogIn className="w-4 h-4 text-blue-400" /> Sign In</>
+              <><LogIn className="w-4 h-4 text-blue-400 drop-shadow" /> Sign In</>
             )}
           </button>
         </div>
